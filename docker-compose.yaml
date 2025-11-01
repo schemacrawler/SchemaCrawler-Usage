@@ -1,0 +1,18 @@
+# Copyright (c) Sualeh Fatehi
+# SPDX-License-Identifier: EPL-2.0
+
+services:
+
+  schemacrawler:
+    image: schemacrawler/schemacrawler:latest
+    container_name: schemacrawler
+    stdin_open: true
+    tty: true
+    environment:
+      - SCHEMACRAWLER_HOME=/home/schcrwlr
+      - JAVA_TOOL_OPTIONS=--enable-native-access=ALL-UNNAMED
+    volumes:
+      - type: bind
+        source: ./
+        target: /home/schcrwlr/share
+    entrypoint: /bin/bash

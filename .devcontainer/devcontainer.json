@@ -1,0 +1,51 @@
+{
+  "name": "SchemaCrawler Development",
+  "dockerComposeFile": "../docker-compose.yaml",
+  "service": "schemacrawler",
+  "workspaceFolder": "/home/schcrwlr/share",
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "EditorConfig.EditorConfig",
+        "bierner.github-markdown-preview",
+        "bierner.markdown-checkbox",
+        "bierner.markdown-emoji",
+        "bierner.markdown-footnotes",
+        "bierner.markdown-mermaid",
+        "bierner.markdown-preview-github-styles",
+        "bierner.markdown-yaml-preamble",
+        "DavidAnson.vscode-markdownlint",
+        "GitHub.remotehub"
+      ],
+      "settings": {
+        "[markdown]": {
+          "files.trimTrailingWhitespace": false,
+          "editor.quickSuggestions": {
+            "comments": "on",
+            "strings": "on",
+            "other": "on"
+          },
+          "editor.wordWrap": "bounded"
+        },
+        "editor.foldingImportsByDefault": true,
+        "editor.minimap.enabled": false,
+        "editor.overviewRulerBorder": false,
+        "editor.tabSize": 2,
+        "editor.wrappingIndent": "indent",
+        "editor.wordWrap": "bounded",
+        "files.defaultLanguage": "markdown",
+        "files.trimTrailingWhitespace": true,
+        "markdown.preview.breaks": true,
+        "workbench.editor.enablePreview": false,
+        "workbench.editorAssociations": {
+          "*.md": "vscode.markdown.preview.editor"
+        }
+      }
+    }
+  },
+
+  "postCreateCommand": "schemacrawler --version && echo 'SchemaCrawler environment ready!'",
+
+  "remoteUser": "schcrwlr"
+}
