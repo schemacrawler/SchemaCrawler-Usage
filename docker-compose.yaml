@@ -10,7 +10,7 @@ services:
     tty: true
     environment:
       - SCHEMACRAWLER_HOME=/home/schcrwlr
-      - JAVA_TOOL_OPTIONS=--enable-native-access=ALL-UNNAMED
+      # - JAVA_TOOL_OPTIONS=--enable-native-access=ALL-UNNAMED
     volumes:
       - type: bind
         source: ./
