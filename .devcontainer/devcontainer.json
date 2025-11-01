@@ -2,7 +2,7 @@
   "name": "SchemaCrawler Development",
   "dockerComposeFile": "../docker-compose.yaml",
   "service": "schemacrawler",
-  "workspaceFolder": "/home/schcrwlr/share",
+  "workspaceFolder": "/home/schcrwlr",
 
   "customizations": {
     "vscode": {

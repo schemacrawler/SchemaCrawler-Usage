@@ -23,7 +23,7 @@ SchemaCrawler is a free database schema discovery and comprehension tool. Schema
 This is a bare project that allows you to run SchemaCrawler from the terminal.
 
 
-## Prerequisites
+## Pre-requisites
 
 ### Option :one:: Using GitHub Codespaces (Recommended)
 
@@ -31,7 +31,7 @@ This is a bare project that allows you to run SchemaCrawler from the terminal.
 2. **GitHub Codespaces** - Follow the [GitHub Codespaces quickstart](https://docs.github.com/en/codespaces/getting-started/quickstart)
 3. Click the green "Code" button on this repository and select "Create codespace on main"
 
-### Option :two:: Using Local Development
+### Option :two:: Using Local Dev Containers
 
 1. **Docker** - Install from [docker.com](https://www.docker.com/get-started/)
 2. **Docker Compose** - Included with Docker Desktop, or install separately from [docs.docker.com](https://docs.docker.com/compose/install/)
@@ -63,4 +63,6 @@ This is a bare project that allows you to run SchemaCrawler from the terminal.
 
 ### Using SchemaCrawler
 
-Refer to the [getting started](../docs/getting-started.md) documentation.
+Whichever way you started Visual Studio Code, start a new "bash" terminal. This will take you into the SchemaCrawler shell. In the shell, run `schemacrawler --version` to verify that SchemaCrawler is available.
+
+Continue to the [getting started](../docs/getting-started.md) documentation.
