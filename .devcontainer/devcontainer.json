@@ -42,6 +42,7 @@
       }
     }
   },
-  "postCreateCommand": "code README.md",
+  "initializeCommand": "code README.md",
+  "postCreateCommand": "schemacrawler --version",
   "remoteUser": "schcrwlr"
 }
