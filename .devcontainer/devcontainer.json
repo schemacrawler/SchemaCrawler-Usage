@@ -42,7 +42,6 @@
       }
     }
   },
-  "initializeCommand": "code README.md",
   "postCreateCommand": "schemacrawler --version",
   "remoteUser": "schcrwlr"
 }
