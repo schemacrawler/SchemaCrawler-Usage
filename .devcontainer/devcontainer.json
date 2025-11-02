@@ -2,8 +2,7 @@
   "name": "SchemaCrawler Development",
   "dockerComposeFile": "../docker-compose.yaml",
   "service": "schemacrawler",
-  "workspaceFolder": "/home/schcrwlr",
-
+  "workspaceFolder": "/home/schcrwlr/share",
   "customizations": {
     "vscode": {
       "extensions": [
@@ -15,7 +14,6 @@
         "bierner.markdown-mermaid",
         "bierner.markdown-preview-github-styles",
         "bierner.markdown-yaml-preamble",
-        "DavidAnson.vscode-markdownlint",
         "GitHub.remotehub"
       ],
       "settings": {
@@ -44,8 +42,6 @@
       }
     }
   },
-
-  "postCreateCommand": "schemacrawler --version && echo 'SchemaCrawler environment ready!'",
-
+  "postCreateCommand": "code README.md",
   "remoteUser": "schcrwlr"
 }
