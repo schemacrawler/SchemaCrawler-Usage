@@ -1,0 +1,62 @@
+name: Build with Dependencies
+
+on:
+  workflow_dispatch:
+  push:
+  pull_request:
+    branches:
+      - main
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions: read-all
+
+jobs:
+  build:
+    name: Build with Dependencies
+    runs-on: ubuntu-latest
+    steps:
+
+# SETUP BUILD ENVIRONMENT
+    - id: prepare-maven-build
+      name: Prepare Maven build
+      uses: sualeh/prepare-maven-build@v1.6.1
+      with:
+        java-version: 21
+    - id: install-graphviz
+      name: Install Graphviz
+      uses: sualeh/install-graphviz@v1.0.3
+
+# BUILD DEPENDENCIES
+    - id: build-schemacrawler-core
+      name: Build SchemaCrawler-Core
+      uses: sualeh/build-maven-dependency@v1.0.8
+      with:
+        repository: schemacrawler/SchemaCrawler-Core
+        artifact: us.fatehi:schemacrawler:17.4.0
+    - id: build-schemacrawler
+      name: Build SchemaCrawler
+      uses: sualeh/build-maven-dependency@v1.0.8
+      with:
+        repository: schemacrawler/SchemaCrawler
+        artifact: us.fatehi:schemacrawler-commandline:17.4.0
+    - id: build-schemacrawler-database-plugins
+      name: Build SchemaCrawler Database Plugins
+      uses: sualeh/build-maven-dependency@v1.0.8
+      with:
+        repository: schemacrawler/SchemaCrawler-Database-Plugins
+        artifact: us.fatehi:schemacrawler-trino:17.4.0
+
+# BUILD AND TEST
+    - id: build-test
+      name: Build all modules and run tests
+      shell: bash
+      run: |
+        # Build
+        cd schemacrawler-examplecode
+        mvn \
+          --no-transfer-progress \
+          --batch-mode \
+          clean package
