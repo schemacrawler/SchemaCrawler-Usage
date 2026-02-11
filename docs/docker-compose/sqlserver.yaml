@@ -6,6 +6,7 @@ services:
   sqlserver:
     image: mcr.microsoft.com/mssql/server:2022-CU9-ubuntu-20.04
     container_name: sqlserver
+    platform: linux/amd64
     ports:
       - target: 1433
         published: 1433
@@ -13,4 +14,4 @@ services:
         mode: host
     environment:
       ACCEPT_EULA: "Y"
-      SA_PASSWORD: Schem#Crawl3r
+      MSSQL_SA_PASSWORD: Schem#Crawl3r
