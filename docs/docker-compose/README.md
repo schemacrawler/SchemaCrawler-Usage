@@ -34,7 +34,7 @@
     schemacrawler \
       --server=sqlite \
       --database=sc.db \
-      --info-level=standard \
+      --info-level standard \
       --command script \
       --title "Database Schema" \
       --script-language python \
@@ -46,7 +46,7 @@
     schemacrawler \
       --server=sqlite \
       --database=sc.db \
-      --info-level=standard \
+      --info-level standard \
       --command serialize \
       --language YAML \
       --output-file share/schema.yaml
@@ -277,7 +277,7 @@ schemacrawler/schemacrawler \
 /opt/schemacrawler/bin/schemacrawler.sh \
 --server=sqlite \
 --database=sc.db \
---info-level=standard \
+--info-level standard \
 --command script \
 --title "Database Schema" \
 --script-language python \
