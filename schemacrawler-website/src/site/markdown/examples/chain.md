@@ -4,7 +4,7 @@ SchemaCrawler allows you to run multiple SchemaCrawler commands in sequence ("ch
 
 ## How to Run
 
-Before running this example, complete the setup in [Getting Started](getting-started-examples.md).
+Before running this example, complete the setup in [Getting Started](getting-started-examples.html).
 
 1. Create a file called "chain.js" with the contents shown below.
 2. Run the command:
@@ -21,7 +21,7 @@ Before running this example, complete the setup in [Getting Started](getting-sta
     --script share/chain.js
   ```
 
-> Replace with the connection options for your chosen database. See [Getting Started](getting-started-examples.md).
+> Replace with the connection options for your chosen database. See [Getting Started](getting-started-examples.html).
 
 This produces two output files in your working directory on the host:
 - `schema.txt` — a brief text summary of the schema

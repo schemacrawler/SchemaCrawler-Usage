@@ -4,7 +4,7 @@ SchemaCrawler allows export of a full database schema to JSON or YAML via the `s
 
 ## How to Run
 
-Before running this example, complete the setup in [Getting Started](getting-started-examples.md).
+Before running this example, complete the setup in [Getting Started](getting-started-examples.html).
 
 1. Run the command:
 
@@ -22,7 +22,7 @@ Before running this example, complete the setup in [Getting Started](getting-sta
     --output-file share/schema.json
   ```
 
-> Replace with the connection options for your chosen database. See [Getting Started](getting-started-examples.md).
+> Replace with the connection options for your chosen database. See [Getting Started](getting-started-examples.html).
 
 The schema will be exported to a file in the specified format in the current directory. You can use JSON or YAML formats. For details on formats, loading serialized catalogs offline, and format limitations, see [SchemaCrawler Serialization](../serialize.html).
 

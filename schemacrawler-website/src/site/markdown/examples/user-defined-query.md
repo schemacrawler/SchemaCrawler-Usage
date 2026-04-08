@@ -23,7 +23,7 @@ This allows you to write a single query template that SchemaCrawler expands and 
 
 ## How to Run
 
-Before running this example, complete the setup in [Getting Started](getting-started-examples.md).
+Before running this example, complete the setup in [Getting Started](getting-started-examples.html).
 
 1. Run the command:
 
@@ -38,7 +38,7 @@ Before running this example, complete the setup in [Getting Started](getting-sta
     --command tables.select
   ```
 
-> Replace with the connection options for your chosen database. See [Getting Started](getting-started-examples.md).
+> Replace with the connection options for your chosen database. See [Getting Started](getting-started-examples.html).
 
 The "tables.select" query is already pre-defined in the "schemacrawler.config.properties" file. "schemacrawler.config.properties" is also read from the current working directory.
 

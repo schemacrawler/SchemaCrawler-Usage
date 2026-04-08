@@ -4,7 +4,7 @@ This example demonstrates how to use SchemaCrawler directly from the shell comma
 
 ## How to Run
 
-Before running this example, complete the setup in [Getting Started](getting-started-examples.md).
+Before running this example, complete the setup in [Getting Started](getting-started-examples.html).
 
 1. Get a list of all available command-line options:
 
@@ -25,13 +25,13 @@ Before running this example, complete the setup in [Getting Started](getting-sta
      --command list
    ```
 
-> Replace with the connection options for your chosen database. See [Getting Started](getting-started-examples.md).
+> Replace with the connection options for your chosen database. See [Getting Started](getting-started-examples.html).
 
 
 ## How to Experiment
 
-1. Explore the [grep](grep.md) example to search schema objects by regular expression.
-2. Explore the [lint](lint.md) example to detect database design issues.
-3. Explore the [offline](offline.md) example to save and reuse a database snapshot.
+1. Explore the [grep](grep.html) example to search schema objects by regular expression.
+2. Explore the [lint](lint.html) example to detect database design issues.
+3. Explore the [offline](offline.html) example to save and reuse a database snapshot.
 4. Try different `--info-level` values: `minimum`, `standard`, `detailed`, `maximum`.
 5. Edit `config/schemacrawler.config.properties` to customize output options.
