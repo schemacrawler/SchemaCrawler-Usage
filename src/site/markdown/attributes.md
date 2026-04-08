@@ -93,25 +93,3 @@ in SchemaCrawler diagrams and in other SchemaCrawler output. Use syntax like the
 still using the "implicit-associations" key. SchemaCrawler will find a foreign key match for 
 the columns in the referenced and referencing tables, and will update the remarks on that
 foreign key.
-
-## Specifying Alternate Keys
-
-You can specify alternate keys in tables by creating a file like the one below. These 
-alternate keys will be shown in SchemaCrawler output and diagrams.
-
-SchemaCrawler does not allow you to provide alternate keys in an external tables,
-or a column that is not in the database schema metadata.
-
-```yaml
-name: catalog
-alternate-keys:
-- name: 1_alternate_key
-  catalog: PUBLIC
-  schema: BOOKS
-  table: BOOKAUTHORS
-  columns:
-    - BOOKID
-    - AUTHORID
-  remarks:
-  - "Indicate that this key is being used as a primary key"
-```

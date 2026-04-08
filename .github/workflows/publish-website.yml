@@ -71,11 +71,9 @@ jobs:
       shell: bash
       run: |
         # Build website (runs JUnit tests that generate images, then renders markdown to HTML)
-        # -Ddistrib enables the site generation tests (SiteDiagramVariationsTest etc.)
         mvn \
           --no-transfer-progress \
           --batch-mode \
-          -Ddistrib \
           clean test
 
 # UPLOAD WEBSITE (only on tags or manual dispatch)
