@@ -4,7 +4,7 @@ This example demonstrates how to use SchemaCrawler directly from the shell comma
 
 ## How to Run
 
-Before running this example, complete the setup in [Getting Started](getting-started.md).
+Before running this example, complete the setup in [Getting Started](getting-started-examples.md).
 
 1. Get a list of all available command-line options:
 
@@ -25,7 +25,7 @@ Before running this example, complete the setup in [Getting Started](getting-sta
      --command list
    ```
 
-> Replace `<connection-options>` with the connection options for your chosen database. See [Getting Started](getting-started.md).
+> Replace `<connection-options>` with the connection options for your chosen database. See [Getting Started](getting-started-examples.md).
 
 
 ## How to Experiment

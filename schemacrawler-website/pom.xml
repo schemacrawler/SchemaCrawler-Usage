@@ -165,9 +165,24 @@
               <headerHtmlFile>${project.basedir}/src/site/header.include</headerHtmlFile>
               <footerHtmlFile>${project.basedir}/src/site/footer.include</footerHtmlFile>
               <pegdownExtensions>SMARTYPANTS,FENCED_CODE_BLOCKS,AUTOLINKS,EXTANCHORLINKS,TABLES</pegdownExtensions>
-              <recursiveInput>true</recursiveInput>
+              <recursiveInput>false</recursiveInput>
               <inputDirectory>${project.basedir}/target/site-markdown</inputDirectory>
               <outputDirectory>${project.basedir}/target/_website</outputDirectory>
+            </configuration>
+          </execution>
+          <execution>
+            <id>website-examples</id>
+            <phase>test</phase>
+            <goals>
+              <goal>generate</goal>
+            </goals>
+            <configuration>
+              <headerHtmlFile>${project.basedir}/src/site/header-examples.include</headerHtmlFile>
+              <footerHtmlFile>${project.basedir}/src/site/footer.include</footerHtmlFile>
+              <pegdownExtensions>SMARTYPANTS,FENCED_CODE_BLOCKS,AUTOLINKS,EXTANCHORLINKS,TABLES</pegdownExtensions>
+              <recursiveInput>false</recursiveInput>
+              <inputDirectory>${project.basedir}/target/site-markdown/examples</inputDirectory>
+              <outputDirectory>${project.basedir}/target/_website/examples</outputDirectory>
             </configuration>
           </execution>
         </executions>

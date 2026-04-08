@@ -4,7 +4,7 @@ SchemaCrawler can execute arbitrary SQL, including SQL that is specific to a par
 
 ## How to Run
 
-Before running this example, complete the setup in [Getting Started](getting-started.md).
+Before running this example, complete the setup in [Getting Started](getting-started-examples.md).
 
 1. Open a command shell in the `db-specific-query` example directory.
 2. Run the example command:
@@ -13,7 +13,7 @@ Before running this example, complete the setup in [Getting Started](getting-sta
   schemacrawler <connection-options> --info-level standard -c=hsqldb.tables
   ```
 
-> Replace `<connection-options>` with the connection options for your chosen database. See [Getting Started](getting-started.md).
+> Replace `<connection-options>` with the connection options for your chosen database. See [Getting Started](getting-started-examples.md).
 
 3. To write output to a file:
 

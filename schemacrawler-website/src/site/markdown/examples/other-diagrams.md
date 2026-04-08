@@ -4,9 +4,9 @@ SchemaCrawler can generate diagrams in formats beyond its built-in GraphViz gene
 
 ## How to Run
 
-Before running this example, complete the setup in [Getting Started](getting-started.md).
+Before running this example, complete the setup in [Getting Started](getting-started-examples.md).
 
-> Replace with the connection options for your chosen database. See [Getting Started](getting-started.md).
+> Replace with the connection options for your chosen database. See [Getting Started](getting-started-examples.md).
 
 
 ### Mermaid ER Diagram
@@ -62,7 +62,7 @@ The output file `output.dbml` will appear in your working directory on the host.
 
 The output file `output.puml` will appear in your working directory on the host. Paste its contents into the [PlantUML online server](http://www.plantuml.com/plantuml/umla) to render the diagram.
 
-> Replace `<connection-options>` with the connection options for your chosen database. See [Getting Started](getting-started.md).
+> Replace `<connection-options>` with the connection options for your chosen database. See [Getting Started](getting-started-examples.md).
 
 
 ## Resource Files

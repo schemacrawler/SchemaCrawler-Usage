@@ -4,7 +4,7 @@ SchemaCrawler allows you to script against live database metadata using Python. 
 
 ## How to Run
 
-Before running this example, complete the setup in [Getting Started](getting-started.md).
+Before running this example, complete the setup in [Getting Started](getting-started-examples.md).
 
 1. Create a file called "tables.py" with the contents shown below.
 2. Run the command:
@@ -21,7 +21,7 @@ Before running this example, complete the setup in [Getting Started](getting-sta
     --script share/tables.py
   ```
 
-> Replace with the connection options for your chosen database. See [Getting Started](getting-started.md).
+> Replace with the connection options for your chosen database. See [Getting Started](getting-started-examples.md).
 
 ## Resource Files
 

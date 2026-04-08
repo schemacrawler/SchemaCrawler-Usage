@@ -4,7 +4,7 @@ SchemaCrawler integrates with [Mustache](https://mustache.github.io/) to allow y
 
 ## How to Run
 
-Before running this example, complete the setup in [Getting Started](getting-started.md).
+Before running this example, complete the setup in [Getting Started](getting-started-examples.md).
 
 1. Create a file called "tables.mustache" with the contents shown below.
 2. Run the command:
@@ -23,7 +23,7 @@ Before running this example, complete the setup in [Getting Started](getting-sta
     --output-file share/output.txt
 ```
 
-> Replace with the connection options for your chosen database. See [Getting Started](getting-started.md).
+> Replace with the connection options for your chosen database. See [Getting Started](getting-started-examples.md).
 
 The output file will appear in your current working directory on the host.
 

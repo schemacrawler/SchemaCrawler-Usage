@@ -4,7 +4,7 @@ This example demonstrates how to save a database schema to a compressed offline 
 
 ## How to Run
 
-Before running this example, complete the setup in [Getting Started](getting-started.md).
+Before running this example, complete the setup in [Getting Started](getting-started-examples.md).
 
 1. Create an offline snapshot from the live database. Run the command:
 

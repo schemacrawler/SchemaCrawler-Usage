@@ -4,7 +4,7 @@ This example shows how to search a database schema for tables, columns, and rout
 
 ## How to Run
 
-Before running this example, complete the setup in [Getting Started](getting-started.md).
+Before running this example, complete the setup in [Getting Started](getting-started-examples.md).
 
 1. Find tables that contain columns matching a regular expression (e.g., columns named `publisher`). Run the command:
 
@@ -20,7 +20,7 @@ Before running this example, complete the setup in [Getting Started](getting-sta
     --grep-columns=.*\.publisher
   ```
 
-> Replace with the connection options for your chosen database. See [Getting Started](getting-started.md).
+> Replace with the connection options for your chosen database. See [Getting Started](getting-started-examples.md).
 
 2. Find routines that have parameters matching a regular expression (e.g., parameters named `two`). Run the command:
 

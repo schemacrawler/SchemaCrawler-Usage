@@ -118,18 +118,18 @@ vendors.
 
 SchemaCrawler provides metadata for the following database objects:
 
-* Column data types
-* Tables and views
-  * Columns
-  * Primary keys
-  * Indexes
-  * Table constraints
-  * Triggers
-  * Foreign keys
-* Routines, including functions and stored procedures
-* Sequences
-* Synonyms
-* Privileges and grants
+- Column data types
+- Tables and views
+  - Columns
+  - Primary keys
+  - Indexes
+  - Table constraints
+  - Triggers
+  - Foreign keys
+- Routines, including functions and stored procedures
+- Sequences
+- Synonyms
+- Privileges and grants
 
 The sample code below demonstrates just how easy it is to use SchemaCrawler.
 For more example code, take a look at the [example code](https://github.com/schemacrawler/SchemaCrawler-Usage).
@@ -138,12 +138,3 @@ For more details, please refer to the [javadocs](https://javadoc.io/doc/us.fateh
 <script src="https://gist.github.com/schemacrawler/63e4b8cb0515c6e928e7a9a419f46411.js"></script>
 More code examples are at [Code Examples Using the SchemaCrawler API](code-examples.html).
 
-
-
-
-## Acknowledgements
-
-SchemaCrawler is grateful to
-
-- [Adrien Sales](https://www.linkedin.com/in/adrien-sales) for developing the ecosystem
-- [Atlassian](https://www.atlassian.com/) for providing a license for [Clover](https://www.atlassian.com/software/clover)

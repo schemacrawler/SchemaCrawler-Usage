@@ -4,7 +4,7 @@ The diagram example demonstrates integration of SchemaCrawler with [Graphviz](ht
 
 ## How to Run
 
-Before running this example, complete the setup in [Getting Started](getting-started.md).
+Before running this example, complete the setup in [Getting Started](getting-started-examples.md).
 
 > Graphviz is included in the SchemaCrawler Docker image. No separate installation is needed.
 
@@ -24,7 +24,7 @@ Before running this example, complete the setup in [Getting Started](getting-sta
 
 The output filename extension determines the output format — PNG, PDF, SVG, or others.
 
-> Replace `<connection-options>` with the connection options for your chosen database. See [Getting Started](getting-started.md).
+> Replace `<connection-options>` with the connection options for your chosen database. See [Getting Started](getting-started-examples.md).
 
 The diagram file will appear in your current working directory on the host.
 

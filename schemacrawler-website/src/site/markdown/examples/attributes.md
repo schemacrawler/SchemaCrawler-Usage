@@ -4,7 +4,7 @@ SchemaCrawler allows you to enrich your schema with remarks and custom metadata 
 
 ## How to Run
 
-Before running this example, complete the setup in [Getting Started](getting-started.md).
+Before running this example, complete the setup in [Getting Started](getting-started-examples.md).
 
 1. Create a file called "attributes.yaml" with the contents shown below.
 2. Run the command:
@@ -21,7 +21,7 @@ Before running this example, complete the setup in [Getting Started](getting-sta
     --attributes-file share/attributes.yaml
   ```
 
-> Replace with the connection options for your chosen database. See [Getting Started](getting-started.md).
+> Replace with the connection options for your chosen database. See [Getting Started](getting-started-examples.md).
 
 SchemaCrawler will load the schema and overlay the remarks and attributes defined in `attributes.yaml` onto the output.
 
