@@ -2,10 +2,6 @@ name: Build and Publish Website
 
 on:
   workflow_dispatch:
-  push:
-  pull_request:
-    branches:
-      - main
 
 permissions:
   contents: read
@@ -44,6 +40,20 @@ jobs:
     - id: install-graphviz
       name: Install Graphviz
       uses: sualeh/install-graphviz@v1.0.3
+
+# BUILD DEPENDENCIES
+    - id: build-schemacrawler-core
+      name: Build SchemaCrawler-Core
+      uses: sualeh/build-maven-dependency@v1.0.8
+      with:
+        repository: schemacrawler/SchemaCrawler-Core
+        artifact: us.fatehi:schemacrawler:17.10.0
+    - id: build-schemacrawler
+      name: Build SchemaCrawler
+      uses: sualeh/build-maven-dependency@v1.0.8
+      with:
+        repository: schemacrawler/SchemaCrawler
+        artifact: us.fatehi:schemacrawler-commandline:17.10.0
 
 # BUILD WEBSITE
     - id: build

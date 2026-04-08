@@ -4,7 +4,7 @@ This example demonstrates how to use SchemaCrawler Lint to identify potential da
 
 ## How to Run
 
-Before running this example, complete the setup in [Getting Started](getting-started-examples.md).
+Before running this example, complete the setup in [Getting Started](getting-started-examples.html).
 
 1. Run the command:
 

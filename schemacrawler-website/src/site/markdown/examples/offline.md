@@ -4,7 +4,7 @@ This example demonstrates how to save a database schema to a compressed offline 
 
 ## How to Run
 
-Before running this example, complete the setup in [Getting Started](getting-started-examples.md).
+Before running this example, complete the setup in [Getting Started](getting-started-examples.html).
 
 1. Create an offline snapshot from the live database. Run the command:
 
@@ -59,7 +59,7 @@ When creating an offline database, prefer to use `maximum` info-level.
      --output-file share/output.html
    ```
 
-3. Use the offline snapshot with the [grep](grep.md) options to search metadata without a live connection:
+3. Use the offline snapshot with the [grep](grep.html) options to search metadata without a live connection:
 
    ```sh
    schemacrawler \
@@ -71,7 +71,7 @@ When creating an offline database, prefer to use `maximum` info-level.
      --grep-columns ".*\.publisher"
    ```
 
-4. Use the offline snapshot with [lint](lint.md) to find design issues without a live database:
+4. Use the offline snapshot with [lint](lint.html) to find design issues without a live database:
 
    ```sh
    schemacrawler \

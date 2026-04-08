@@ -73,7 +73,7 @@ You should see a list of tables in the Books schema. You are now ready to follow
 
 ## Step 5 — Try Out the Examples
 
-Start with the most basic example, ["commandline"](commandline.md).
+Start with the most basic example, ["commandline"](commandline.html).
 
 
 ## Working with Output Files

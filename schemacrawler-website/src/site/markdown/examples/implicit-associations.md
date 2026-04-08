@@ -4,7 +4,7 @@ SchemaCrawler allows you to define *implicit associations* — foreign key relat
 
 ## How to Run
 
-Before running this example, complete the setup in [Getting Started](getting-started-examples.md).
+Before running this example, complete the setup in [Getting Started](getting-started-examples.html).
 
 1. Create a file called "implicit-associations.yaml" with the contents shown below.
 2. Run the command:
@@ -22,7 +22,7 @@ schemacrawler \
   --output-file share/implicit-associations.png
 ```
 
-> Replace with the connection options for your chosen database. See [Getting Started](getting-started-examples.md).
+> Replace with the connection options for your chosen database. See [Getting Started](getting-started-examples.html).
 
 Open `implicit-associations.png` to view the schema diagram. The implicit associations defined in the YAML file will appear as relationships in the diagram, alongside any real foreign keys in the database.
 
