@@ -59,7 +59,7 @@ jobs:
         repository: schemacrawler/SchemaCrawler
         artifact: us.fatehi:schemacrawler-commandline:17.10.0
 
-# BUILD WESBITE
+# BUILD WEBSITE
     - id: build
       name: Build website
       shell: bash
@@ -69,6 +69,18 @@ jobs:
           --no-transfer-progress \
           --batch-mode \
           clean test
+
+# CHECK LINKS
+    - id: check-links
+      name: Check links in generated website
+      shell: bash
+      run: |
+        python .github/scripts/check_links.py \
+          --html \
+          --root ./schemacrawler-website/target/_website \
+          --report /tmp/link-report.md \
+          --no-external || true
+        cat /tmp/link-report.md >> "$GITHUB_STEP_SUMMARY"
 
 # UPLOAD WEBSITE (only on tags or manual dispatch)
     - id: configure-pages

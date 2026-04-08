@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Scan Markdown files, validate links, and write a broken-link report."""
+"""Scan HTML or Markdown files, validate links, and write a broken-link report."""
 
 from __future__ import annotations
 
@@ -7,6 +7,7 @@ import argparse
 import concurrent.futures
 import dataclasses
 import datetime as dt
+import html.parser
 import pathlib
 import re
 import sys
@@ -22,6 +23,35 @@ REFERENCE_DEF_RE = re.compile(r"^\s{0,3}\[([^\]]+)\]:\s*(\S+)", re.MULTILINE)
 AUTOLINK_RE = re.compile(r"<((?:https?://|mailto:|tel:)[^>\s]+)>")
 HEADING_RE = re.compile(r"^\s{0,3}#{1,6}\s+(.*?)\s*#*\s*$")
 EXPLICIT_ANCHOR_RE = re.compile(r"<a\s+(?:id|name)=[\"']([^\"']+)[\"']", re.IGNORECASE)
+
+
+class _LinkExtractor(html.parser.HTMLParser):
+    """Extract href values from <a> tags in an HTML document."""
+
+    def __init__(self) -> None:
+        super().__init__()
+        self.links: List[str] = []
+
+    def handle_starttag(self, tag: str, attrs: list) -> None:
+        if tag.lower() == "a":
+            for name, value in attrs:
+                if name.lower() == "href" and value:
+                    self.links.append(value)
+
+
+class _AnchorExtractor(html.parser.HTMLParser):
+    """Collect all id attributes and <a name="..."> values from an HTML document."""
+
+    def __init__(self) -> None:
+        super().__init__()
+        self.anchors: Set[str] = set()
+
+    def handle_starttag(self, tag: str, attrs: list) -> None:
+        attr_dict = {name.lower(): value for name, value in attrs if value}
+        if "id" in attr_dict:
+            self.anchors.add(attr_dict["id"])
+        if tag.lower() == "a" and "name" in attr_dict:
+            self.anchors.add(attr_dict["name"])
 
 
 @dataclasses.dataclass(frozen=True)
@@ -288,6 +318,14 @@ def validate_local_target(
         if fragment not in anchors:
             return resolved, f"Missing anchor '#{fragment}'"
 
+    if fragment and target_file.suffix.lower() == ".html":
+        anchors = anchor_cache.get(target_file)
+        if anchors is None:
+            anchors = collect_anchors_from_html(target_file)
+            anchor_cache[target_file] = anchors
+        if fragment not in anchors:
+            return resolved, f"Missing anchor '#{fragment}'"
+
     return resolved, None
 
 
@@ -344,10 +382,34 @@ def find_markdown_files(root: pathlib.Path, exclude_patterns: Sequence[str]) -> 
     return sorted(files)
 
 
+def find_html_files(root: pathlib.Path, exclude_patterns: Sequence[str]) -> List[pathlib.Path]:
+    files: List[pathlib.Path] = []
+    for candidate in root.rglob("*"):
+        if candidate.is_file() and candidate.suffix.lower() == ".html":
+            if not should_exclude(candidate, root, exclude_patterns):
+                files.append(candidate)
+    return sorted(files)
+
+
+def iter_links_from_html(file_path: pathlib.Path) -> Iterable[LinkOccurrence]:
+    content = file_path.read_text(encoding="utf-8", errors="replace")
+    extractor = _LinkExtractor()
+    extractor.feed(content)
+    for href in extractor.links:
+        yield LinkOccurrence(file_path, 0, href)
+
+
+def collect_anchors_from_html(html_path: pathlib.Path) -> Set[str]:
+    content = html_path.read_text(encoding="utf-8", errors="replace")
+    extractor = _AnchorExtractor()
+    extractor.feed(content)
+    return extractor.anchors
+
+
 def build_report(
     root: pathlib.Path,
     report_path: pathlib.Path,
-    markdown_files_count: int,
+    files_count: int,
     links_checked_count: int,
     broken: Dict[str, Dict[str, object]],
 ) -> str:
@@ -358,7 +420,7 @@ def build_report(
     lines.append("")
     lines.append(f"- Generated: {now}")
     lines.append(f"- Root scanned: {root.as_posix()}")
-    lines.append(f"- Markdown files scanned: {markdown_files_count}")
+    lines.append(f"- Files scanned: {files_count}")
     lines.append(f"- Links checked: {links_checked_count}")
     lines.append(f"- Broken links found: {len(broken)}")
     lines.append("")
@@ -414,12 +476,20 @@ def run(args: argparse.Namespace) -> int:
     default_excludes = ["**/.git/**"]
     exclude_patterns = default_excludes + args.exclude
 
-    markdown_files = find_markdown_files(root, exclude_patterns)
-    markdown_files = [path for path in markdown_files if path.resolve() != report_path]
-    occurrences: List[LinkOccurrence] = []
-
-    for markdown_file in markdown_files:
-        occurrences.extend(iter_links_from_markdown(markdown_file))
+    if args.html:
+        source_files = find_html_files(root, exclude_patterns)
+        source_files = [path for path in source_files if path.resolve() != report_path]
+        occurrences: List[LinkOccurrence] = []
+        for html_file in source_files:
+            occurrences.extend(iter_links_from_html(html_file))
+        file_type_label = "HTML"
+    else:
+        source_files = find_markdown_files(root, exclude_patterns)
+        source_files = [path for path in source_files if path.resolve() != report_path]
+        occurrences = []
+        for markdown_file in source_files:
+            occurrences.extend(iter_links_from_markdown(markdown_file))
+        file_type_label = "Markdown"
 
     local_cache: Dict[str, Optional[str]] = {}
     external_cache: Dict[str, Optional[str]] = {}
@@ -485,7 +555,7 @@ def run(args: argparse.Namespace) -> int:
     report = build_report(
         root=root,
         report_path=report_path,
-        markdown_files_count=len(markdown_files),
+        files_count=len(source_files),
         links_checked_count=links_checked,
         broken=broken,
     )
@@ -493,7 +563,7 @@ def run(args: argparse.Namespace) -> int:
     report_path.parent.mkdir(parents=True, exist_ok=True)
     report_path.write_text(report, encoding="utf-8")
 
-    print(f"Scanned {len(markdown_files)} Markdown files.")
+    print(f"Scanned {len(source_files)} {file_type_label} files.")
     print(f"Checked {links_checked} unique links.")
     print(f"Found {len(broken)} broken links.")
     print(f"Report written to: {report_path}")
@@ -531,6 +601,11 @@ def build_parser() -> argparse.ArgumentParser:
         "--no-external",
         action="store_true",
         help="Skip checking HTTP/HTTPS links.",
+    )
+    parser.add_argument(
+        "--html",
+        action="store_true",
+        help="Scan HTML files instead of Markdown files.",
     )
     parser.add_argument(
         "--exclude",
