@@ -15,7 +15,7 @@ Before running any of the examples in this directory, follow the steps below to 
 ## Step 1 — Start a Database
 
 The examples use a test database with a Books schema. Follow the instructions in
-[`../docker-compose/README.md`](../docker-compose/README.md) to:
+[`https://github.com/schemacrawler/SchemaCrawler-Usage/tree/main/docker-compose/README.md`](https://github.com/schemacrawler/SchemaCrawler-Usage/tree/main/docker-compose/README.md) to:
 
 Choose a database (for example, PostgreSQL). Change your working directory to the "docker-compose" folder. Start the SchemaCrawler container and the database container with Docker Compose:
 
@@ -37,8 +37,7 @@ All subsequent `schemacrawler` commands in the examples are run from this shell 
 
 ## Step 3 — Set Up the Test Schema
 
-The examples use a test database with a Books schema. Follow the instructions in
-[`../docker-compose/README.md`](../docker-compose/README.md) to:
+The examples use a test database with a Books schema. Follow the instructions for [SchemaCrawler Docker Compose setup](https://github.com/schemacrawler/SchemaCrawler-Usage/tree/main/docker-compose/README.md) to:
 
 ```sh
 /opt/schemacrawler/testdb.sh \
@@ -49,7 +48,7 @@ The examples use a test database with a Books schema. Follow the instructions in
 
 (Modify the command as needed for PowerShell or other shell.)
 
-> The `../docker-compose/README.md` file has the exact setup commands for every supported database.
+> The [SchemaCrawler Docker Compose setup](https://github.com/schemacrawler/SchemaCrawler-Usage/tree/main/docker-compose/README.md) has the exact setup commands for every supported database.
 > All examples will use PostgreSQL, but can be adapted to any other database, and for a local SchemaCrawler install.
 
 
@@ -69,7 +68,6 @@ schemacrawler \
 ```
 
 > Replace the connection options with those for your chosen database.
-> See [`../docker-compose/README.md`](../docker-compose/README.md) for the connection options for each database.
 
 You should see a list of tables in the Books schema. You are now ready to follow any of the examples.
 
