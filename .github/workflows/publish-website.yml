@@ -18,7 +18,7 @@ concurrency:
 
 jobs:
   build:
-    name: Build and Test Website
+    name: Build Website
     runs-on: ubuntu-latest
     steps:
 
@@ -59,12 +59,12 @@ jobs:
         repository: schemacrawler/SchemaCrawler
         artifact: us.fatehi:schemacrawler-commandline:17.10.0
 
-# BUILD AND TEST
+# BUILD WESBITE
     - id: build
-      name: Build and test to generate website
+      name: Build website
       shell: bash
       run: |
-        # Build website (runs JUnit tests that generate images, then renders markdown to HTML)
+        # Build website
         mvn \
           --no-transfer-progress \
           --batch-mode \
