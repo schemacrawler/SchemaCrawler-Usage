@@ -35,4 +35,5 @@ Use the following command-line options to "connect" to your offline catalog,
 assuming that you have previously serialized to a file called "offline_db.ser": 
 `--server=offline --database=offline_db.ser`
 No username and password are required.
- 
+
+For a hands-on walkthrough, see the [offline snapshot example](examples/offline.html).

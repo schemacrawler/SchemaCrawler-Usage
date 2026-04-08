@@ -21,9 +21,7 @@ SchemaCrawler serialization can be run using the
 `--command=serialize` command-line option. The serialized schema metadata model
 will be saved to a file.
 
-For more details, see the `serialize` example in the 
-[SchemaCrawler examples](https://www.schemacrawler.com/downloads.html#running-examples-locally/) 
-download.
+For a hands-on walkthrough, see the [serialize example](examples/serialize.html).
 
 SchemaCrawler serialization can produce output in binary Java serialization,
 [JavaScript object notation (JSON)](snapshot-examples/snapshot.json) or

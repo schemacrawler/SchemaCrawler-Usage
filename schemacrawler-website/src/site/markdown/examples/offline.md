@@ -21,7 +21,7 @@ Before running this example, complete the setup in [Getting Started](getting-sta
     --output-file share/offline.ser
    ```
 
-This produces a compressed serialized snapshot file named "offline.ser".
+This produces a compressed serialized snapshot file named "offline.ser". For details on snapshot formats, limitations, and requirements, see [SchemaCrawler Offline Catalog Snapshot](../offline.html).
 
 When creating an offline database, prefer to use `maximum` info-level.
 

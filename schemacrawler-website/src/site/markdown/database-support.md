@@ -56,10 +56,7 @@ For example, typical command-line options for SchemaCrawler for Microsoft SQL Se
 --password=schemacrawler
 ```
 
-You should always use the `--schemas` command-line switch for databases that support it. The value
-for the `--schemas` switch is a regular expression that determines which schemas SchemaCrawler will
-work with. The "schema" is database-dependent - for example, on Microsoft SQL Server, typically
-schemas look like "database_name.user", but for Oracle, typically, schemas look like "USER" (in uppercase).
+Always use the `--schemas` command-line switch (a regular expression) for databases that support it, to specify which schemas SchemaCrawler will work with. Schema naming varies by database: Microsoft SQL Server uses a "database_name.user" format, while Oracle uses uppercase schema names like "USER".
 
 If a system has environmental variables that contain a value, you can use the supported shell functionality to pass data to SchemaCrawler. For example, `--host %DBHOST%` on Windows will use the host value specified in the `DBHOST` environmental variable, and `--host $DBHOST` will do the same thing on Linux.
 

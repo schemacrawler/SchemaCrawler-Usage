@@ -11,3 +11,5 @@ display implicit associations on schema diagrams and text output.
 
 In addition, you can [define your own implicit attributes in an attributes file](attributes.html) 
 and have them loaded in and displayed in SchemaCrawler output.
+
+For a hands-on walkthrough, see the [implicit associations example](examples/implicit-associations.html).

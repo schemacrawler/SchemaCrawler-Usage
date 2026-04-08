@@ -93,3 +93,5 @@ in SchemaCrawler diagrams and in other SchemaCrawler output. Use syntax like the
 still using the "implicit-associations" key. SchemaCrawler will find a foreign key match for 
 the columns in the referenced and referencing tables, and will update the remarks on that
 foreign key.
+
+For a hands-on walkthrough, see the [attributes example](examples/attributes.html).

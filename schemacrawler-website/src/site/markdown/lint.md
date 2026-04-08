@@ -16,10 +16,6 @@ SchemaCrawler Lint is a separate jar, and contains both the framework for doing 
 schema lints, as well as some checks for common database schema design issues. You can 
 extend this by creating your own jar that contains lint checks.
 
-For more details, see the `lint` example in the 
-[SchemaCrawler examples](https://www.schemacrawler.com/downloads.html#running-examples-locally/) 
-download.
-
 ## SchemaCrawler Lint Reports
 
 SchemaCrawler Lint can produce reports in 
@@ -95,3 +91,4 @@ The main distribution has example code. In order to add your own lint checks,
 - Drop your jar file in the SchemaCrawler lib directory, and create a 
   SchemaCrawler Lint report
 
+For a hands-on walkthrough, see the [lint example](examples/lint.html).
