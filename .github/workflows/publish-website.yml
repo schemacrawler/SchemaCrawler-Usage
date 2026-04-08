@@ -1,11 +1,11 @@
-name: Build and Publish Website for Release
+name: Build and Publish Website
 
 on:
   workflow_dispatch:
   push:
-    tags:
-      - 'v*'
-
+  pull_request:
+    branches:
+      - main
 
 permissions:
   contents: read
@@ -45,12 +45,26 @@ jobs:
       name: Install Graphviz
       uses: sualeh/install-graphviz@v1.0.3
 
+# BUILD DEPENDENCIES
+    - id: build-schemacrawler-core
+      name: Build SchemaCrawler-Core
+      uses: sualeh/build-maven-dependency@v1.0.8
+      with:
+        repository: schemacrawler/SchemaCrawler-Core
+        artifact: us.fatehi:schemacrawler:17.10.0
+    - id: build-schemacrawler
+      name: Build SchemaCrawler
+      uses: sualeh/build-maven-dependency@v1.0.8
+      with:
+        repository: schemacrawler/SchemaCrawler
+        artifact: us.fatehi:schemacrawler-commandline:17.10.0
+
 # BUILD WESBITE
     - id: build
-      name: Build and test to generate website
+      name: Build website
       shell: bash
       run: |
-        # Build website (runs JUnit tests that generate images, then renders markdown to HTML)
+        # Build website
         mvn \
           --no-transfer-progress \
           --batch-mode \
