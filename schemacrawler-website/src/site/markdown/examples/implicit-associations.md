@@ -1,6 +1,6 @@
 # Implicit Associations Example
 
-SchemaCrawler allows you to define *implicit associations* — foreign key relationships between columns in different tables that are not enforced at the database level. These are logical relationships that exist in your data model but have not been declared as formal foreign key constraints in the database schema. By loading them from a YAML file using the `--attributes-file` switch, SchemaCrawler can include them in diagrams and schema output as if they were real foreign keys.
+SchemaCrawler allows you to define *implicit associations* — foreign key relationships between tables that are not enforced at the database level. By loading them from a YAML file using the `--attributes-file` switch, SchemaCrawler includes them in diagrams and schema output as if they were real foreign keys. For a full explanation, see [Implicit Associations](../implicit-associations.html).
 
 ## How to Run
 

@@ -15,7 +15,7 @@
 5. [How to exclude routines, that is, stored procedures and functions from the output](#excluded-routines)
 6. [How to exclude database functions from the output](#excluded-functions)
 7. [How to exclude database table and column remarks or comments from the output](#excluded-remarks)
-8. [How to do case-insenstive filtering](#case-insensitive)
+8. [How to do case-insensitive filtering](#case-insensitive)
 
 ## Create diff-able Output
 
@@ -117,7 +117,7 @@ Use the `--no-remarks` command-line option. Further, see the [details on the com
 
 ---------
 
-### <a name="case-insensitive">How to do case-insenstive filtering</a>
+### <a name="case-insensitive">How to do case-insensitive filtering</a>
 For any SchemaCrawler argument that uses regular expressions, you can use
 [mode modifiers](https://www.regular-expressions.info/refmodifiers.html)
 for case-insensitive matches. For example, to grep for column names, use a regular expression

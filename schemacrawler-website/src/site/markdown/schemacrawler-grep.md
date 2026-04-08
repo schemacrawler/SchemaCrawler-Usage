@@ -19,6 +19,4 @@ options similar to
 `--info-level=standard --command=list --grep-columns=.*\\.CUSTOMER_ID` 
 This will find all tables that have a CUSTOMER_ID column.
 
-For more details, see the grep example in the 
-[SchemaCrawler examples](https://www.schemacrawler.com/downloads.html#running-examples-locally/) 
-download.
+For more details, see the [grep example](examples/grep.html) for a hands-on walkthrough.

@@ -73,7 +73,6 @@ about [building](building.html).
 
 
 
-[SchemaCrawler examples]: https://www.schemacrawler.com/downloads.html#running-examples-locally/
 [Python]: https://www.python.org/
 [Graphviz]: https://www.graphviz.org/
 [Apache Maven]: https://maven.apache.org/

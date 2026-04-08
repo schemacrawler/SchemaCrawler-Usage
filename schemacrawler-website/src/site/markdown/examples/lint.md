@@ -77,8 +77,7 @@ Before running this example, complete the setup in [Getting Started](getting-sta
         --linter-configs=share/schemacrawler-linter-configs.yaml
       ```
 
-3. Write your own custom lints by implementing the SchemaCrawler Lint API in a new jar.
-   See [SchemaCrawler Lint](https://www.schemacrawler.com/lint.html) for details.
+3. To write your own custom lints, see [SchemaCrawler Lint](../lint.html) for details on the Lint API and how to package and deploy custom linter jars.
 
 
 ## Resource Files

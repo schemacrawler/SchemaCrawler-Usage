@@ -8,10 +8,12 @@ use any of the API methods to obtain details about your schema. A live
 database connection is provided to your script as the "connection" object. You
 can use standard JDBC to script against the database.
 
-For more details, see scripting example in the 
-[SchemaCrawler examples](https://www.schemacrawler.com/downloads.html#running-examples-locally/)
-download, in the `examples\javascript` and
-`examples\python` directories.
+For hands-on examples, see:
+- [JavaScript Scripting](examples/javascript.html)
+- [Python Scripting](examples/python.html)
+- [Apache Velocity Templating](examples/velocity.html)
+- [Mustache Templating](examples/mustache.html)
+- [Thymeleaf Templating](examples/thymeleaf.html)
 
 An hypothetical example of SchemaCrawler JavaScript support is in the
 following script, which attempts to drop all the tables in the database.
@@ -45,6 +47,4 @@ var dropTables = function()
 dropTables();      
 ```
 
-**Note:** SchemaCrawler's scripting and templating functionality allows the execution of arbitrary scripts or templates.
-It is recommended not to distribute the SchemaCrawler scripting jar file in production, unless you have an explicit need
-for this functionality. Do not include this dependency in your SchemaCrawler project unless you need it.
+**Security Note:** SchemaCrawler's scripting and templating functionality allows arbitrary script execution. Do not distribute the `schemacrawler-scripting` jar in production or include this dependency unless explicitly needed.

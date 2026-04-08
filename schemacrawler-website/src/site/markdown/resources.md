@@ -12,8 +12,8 @@ any browser with no software or plugins needed.
 To read more about SchemaCrawler, you can read:
 
 - The SchemaCrawler API [javadocs](https://javadoc.io/doc/us.fatehi/schemacrawler/) .
-- Download the [SchemaCrawler
-  examples](https://www.schemacrawler.com/downloads.html#running-examples-locally/)
+- Run through the [SchemaCrawler
+  examples](examples/examples-index.html)
   for an overview of all SchemaCrawler features and capabilities.
 - Read [How to Get Database Metadata as Java POJOs](https://dev.to/sualeh/how-to-get-database-metadata-as-java-pojos-24li), 
   and browse the [javadocs](https://javadoc.io/doc/us.fatehi/schemacrawler/) for an introduction

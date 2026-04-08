@@ -24,7 +24,7 @@ Before running this example, complete the setup in [Getting Started](getting-sta
 
 > Replace with the connection options for your chosen database. See [Getting Started](getting-started-examples.md).
 
-The schema will be exported to a file in the specified format in the current directory. You can use JSON or YAML formats.
+The schema will be exported to a file in the specified format in the current directory. You can use JSON or YAML formats. For details on formats, loading serialized catalogs offline, and format limitations, see [SchemaCrawler Serialization](../serialize.html).
 
 ## How to Experiment
 

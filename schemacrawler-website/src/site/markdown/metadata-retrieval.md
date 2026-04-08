@@ -16,9 +16,9 @@ Triggers are recorded with their timing (before/ after/ instead of) and the even
 
 Sequences are modeled as independent objects with their attributes (increment, min/ max, cache), and they’re linked to the columns they feed when the database conveys that relationship. This, alongside identity metadata on columns, gives a complete picture of key generation strategies in your schema.
 
-Many real-world schemas rely on indirection, so SchemaCrawler supports synonyms and aliases. It resolves synonyms to their base objects when permissions allow, but it keeps both the synonym and its target visible so you understand the indirection layer without losing traceability. This is particularly useful when documenting shared schemas or legacy systems that route through synonyms.
+Many real-world schemas use synonyms and aliases to reference objects indirectly. SchemaCrawler resolves synonyms to their base objects when permissions allow, but keeps both the synonym and its target visible so you understand the indirection layer without losing traceability. This is particularly useful when documenting shared schemas or legacy systems that route through synonyms.
 
-Domain-specific type systems are also represented. Where the database supports user-defined types, domains, enums, or composite or row types, SchemaCrawler surfaces them and shows where they are used. This helps you see the semantic layer beyond raw SQL types and understand where constraints are centralized in reusable types rather than repeated on individual columns.
+SchemaCrawler captures user-defined types, domains, enums, composite types, and row types (where supported by the database), and shows where they are used. This helps you see the semantic layer beyond raw SQL types and understand where constraints are centralized in reusable types rather than repeated on individual columns.
 
 Security and documentation metadata are included out of the box. Object-level and  column-level privileges and grants are read from the catalogs, along with ownership. Comments and descriptions are pulled in wherever the platform stores them — either via standard comment fields or engine-specific extended properties — so your generated docs can reflect the human-authored knowledge that usually lives in the database.
 

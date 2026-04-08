@@ -25,7 +25,7 @@ Before running this example, complete the setup in [Getting Started](getting-sta
      --command list
    ```
 
-> Replace `<connection-options>` with the connection options for your chosen database. See [Getting Started](getting-started-examples.md).
+> Replace with the connection options for your chosen database. See [Getting Started](getting-started-examples.md).
 
 
 ## How to Experiment
