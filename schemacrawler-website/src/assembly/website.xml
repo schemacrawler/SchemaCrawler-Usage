@@ -13,7 +13,7 @@
 
   <target name="make"
     depends="
-            stage-site-markdown,
+            convert-md-links,
             make-base-website-distribution
             "
     description="Package all sub-project jars into the distributable jar" />
@@ -22,8 +22,26 @@
   <target name="stage-site-markdown"
           description="Stage site Markdown, and generate Markdown content">
     <copy todir="${schemacrawler-website.target}/site-markdown">
-      <fileset dir="${schemacrawler-website.src}/site/markdown"/>
+      <fileset dir="${SchemaCrawler.home}/../website"/>
     </copy>
+  </target>
+
+
+  <target name="convert-md-links"
+          depends="stage-site-markdown"
+          description="Convert relative .md links to .html for website generation">
+    <!-- First pass: handle .md#anchor links (e.g. faq.md#section -> faq.html#section) -->
+    <replaceregexp flags="g">
+      <regexp pattern="\]\(([^:#)]+)\.md(#[^)]+)\)"/>
+      <substitution expression="](\1.html\2)"/>
+      <fileset dir="${schemacrawler-website.target}/site-markdown" includes="**/*.md"/>
+    </replaceregexp>
+    <!-- Second pass: handle plain .md links (e.g. commandline.md -> commandline.html) -->
+    <replaceregexp flags="g">
+      <regexp pattern="\]\(([^:#)]+)\.md\)"/>
+      <substitution expression="](\1.html)"/>
+      <fileset dir="${schemacrawler-website.target}/site-markdown" includes="**/*.md"/>
+    </replaceregexp>
   </target>
 
 
