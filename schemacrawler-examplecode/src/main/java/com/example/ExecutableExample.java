@@ -56,7 +56,7 @@ public final class ExecutableExample {
       final SchemaCrawlerExecutable executable = new SchemaCrawlerExecutable(command);
       executable.setSchemaCrawlerOptions(options);
       executable.setOutputOptions(outputOptions);
-      executable.setDataSource(dataSource);
+      executable.setConnectionSource(dataSource);
       executable.execute();
     }
 

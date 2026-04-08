@@ -6,9 +6,9 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>us.fatehi</groupId>
-    <artifactId>schemacrawler-parent</artifactId>
+    <artifactId>schemacrawler-usage</artifactId>
     <version>17.10.0</version>
-    <relativePath/>
+    <relativePath>../</relativePath>
   </parent>
   <artifactId>schemacrawler-examplecode</artifactId>
   <packaging>jar</packaging>
