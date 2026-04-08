@@ -53,8 +53,7 @@ SchemaCrawler is capable of creating entity-relationship diagrams in
 SchemaCrawler has powerful scripting ability, using JavaScript or Python. 
 A live connection is provided to the script context to allow you to select 
 from or even modify your database.
-Examples are provided for all of these with the
-[download](https://www.schemacrawler.com/downloads.html#running-examples-locally/).
+Examples are provided for all of these in the [SchemaCrawler Examples](examples/examples-index.html) section of this website.
 
 SchemaCrawler is integrated with templating engines, such
 as [Apache Velocity](https://velocity.apache.org/), [Thymeleaf](https://www.thymeleaf.org/),

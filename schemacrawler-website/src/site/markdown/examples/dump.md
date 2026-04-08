@@ -21,7 +21,7 @@ Before running this example, complete the setup in [Getting Started](getting-sta
     --output-file share/dump.html
   ```
 
-> Replace `<connection-options>` with the connection options for your chosen database. See [Getting Started](getting-started-examples.md).
+> Replace with the connection options for your chosen database. See [Getting Started](getting-started-examples.md).
 
 The output file will appear in your current working directory on the host and contain the full database contents in a structured, diff-friendly HTML format.
 

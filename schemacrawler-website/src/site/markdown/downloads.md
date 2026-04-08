@@ -65,10 +65,7 @@ You can install SchemaCrawler on supported platforms using [SDKMan](https://sdkm
 4. Run SchemaCrawler with `schemacrawler.bat` on Windows, or `schemacrawler.sh` on other  platforms 
 
 
-## Running Examples Locally
+## Examples
 
-You can download example code explaining how to use SchemaCrawler from the [releases page](https://github.com/schemacrawler/SchemaCrawler/releases).
-Download a file called "schemacrawler-17.10.0-distribution.zip". You should have previously installed the Java SDK on your system. Unzip the file, and
-read the README files in each folder to follow through with the examples. The examples show how to use the SchemaCrawler command-line, use the API,
-and extend SchemaCrawler functionality programmatically.
+SchemaCrawler examples are available on this website. The examples cover the command-line, diagramming, scripting, templating, lint, serialization, and more. See the [SchemaCrawler Examples](examples/examples-index.html) index to get started.
 
