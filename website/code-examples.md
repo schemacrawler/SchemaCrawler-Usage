@@ -13,7 +13,7 @@ object model.](https://github.com/schemacrawler/SchemaCrawler-Usage/blob/main/sc
 - [An example of using the SchemaCrawler API to generate a description of database metadata in an
 HTML file.](https://github.com/schemacrawler/SchemaCrawler-Usage/blob/main/schemacrawler-examplecode/src/main/java/com/example/ExecutableExample.java#L37-L61)
 - [An example of using the SchemaCrawler API to obtain result-set metadata.](https://github.com/schemacrawler/SchemaCrawler-Usage/blob/main/schemacrawler-examplecode/src/main/java/com/example/ResultSetExample.java#L40-L52)
-
+- [An example of using the SchemaCrawler API to build an ER model with entities and relationships.](https://github.com/schemacrawler/SchemaCrawler-Usage/blob/main/schemacrawler-examplecode/src/main/java/com/example/ERModelExample.java#L48-L58)
 
 ### How to Experiment
 
