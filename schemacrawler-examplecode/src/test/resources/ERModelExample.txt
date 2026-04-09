@@ -1,0 +1,4 @@
+o--> TABLE3_FK (strong_entity)
+     o--> TABLE3_FK.SCHCRWLR_2F907177_2F9158FF (one_many)
+o--> TABLE5_FK (strong_entity)
+     o--> TABLE5_FK.SCHCRWLR_66F54FEA_2F9241BD (one_many)

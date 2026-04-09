@@ -16,6 +16,7 @@ import static us.fatehi.test.utility.extensions.FileHasContent.hasSameContentAs;
 import static us.fatehi.test.utility.extensions.FileHasContent.outputOf;
 
 import com.example.ApiExample;
+import com.example.ERModelExample;
 import com.example.ExecutableExample;
 import com.example.ResultSetExample;
 import java.nio.file.Files;
@@ -34,6 +35,14 @@ public class ExampleTest {
 
     assertThat(outputOf(streams.err()), hasNoContent());
     assertThat(outputOf(streams.out()), hasSameContentAs(classpathResource("ApiExample.txt")));
+  }
+
+  @Test
+  public void erModelExample(final CapturedSystemStreams streams) throws Exception {
+    ERModelExample.main(new String[0]);
+
+    assertThat(outputOf(streams.err()), hasNoContent());
+    assertThat(outputOf(streams.out()), hasSameContentAs(classpathResource("ERModelExample.txt")));
   }
 
   @Test
