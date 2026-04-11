@@ -2,6 +2,11 @@
 
 SchemaCrawler release notes.
 
+<a name="v17.10.1"></a>
+## Release 17.10.1 - 2026-04-12
+
+- Add Clickhouse tests
+
 
 <a name="v17.10.0"></a>
 ## Release 17.10.0 - 2026-04-03
