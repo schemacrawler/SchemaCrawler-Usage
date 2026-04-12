@@ -17,7 +17,7 @@ RDBMS systems. SchemaCrawler works with any operating system that supports
 Java SE 17 or better.
 
 <div class="alert alert-info" role="alert">
-  Use the <a href="https://github.com/schemacrawler/SchemaCrawler-MCP-Server-Usage" target="_blank" rel="noopener noreferrer">SchemaCrawler MCP Server</a> to get deep insights into your database.
+  Use the <a href="https://github.com/schemacrawler/SchemaCrawler-AI-MCP-Server-Usage" target="_blank" rel="noopener noreferrer">SchemaCrawler AI MCP Server</a> to get deep insights into your database.
 </div>
 
 [![Codacy Grade](https://app.codacy.com/project/badge/Grade/84c0a068ce9349f2bcaa07b5977bd932)](https://app.codacy.com/gh/schemacrawler/SchemaCrawler/dashboard)
