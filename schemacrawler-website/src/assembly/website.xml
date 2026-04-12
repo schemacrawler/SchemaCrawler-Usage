@@ -64,6 +64,12 @@
       </fileset>
     </copy>
 
+    <copy todir="${website.staging.dir}/images">
+      <fileset dir="${SchemaCrawler.home}/../logos">
+        <include name="**/*" />
+      </fileset>
+    </copy>
+
     <copy todir="${website.staging.dir}">
       <fileset dir="${website.source.resources.location}">
         <include name="**/*" />
