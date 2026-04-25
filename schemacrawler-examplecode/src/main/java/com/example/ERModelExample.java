@@ -8,9 +8,11 @@
 
 package com.example;
 
+import java.util.Collection;
 import java.util.logging.Level;
 import schemacrawler.ermodel.model.ERModel;
 import schemacrawler.ermodel.model.Entity;
+import schemacrawler.ermodel.model.EntityAttribute;
 import schemacrawler.ermodel.model.Relationship;
 import schemacrawler.schema.Catalog;
 import schemacrawler.schemacrawler.LimitOptionsBuilder;
@@ -52,6 +54,10 @@ public final class ERModelExample {
 
     for (final Entity entity : erModel.getEntities()) {
       System.out.printf("o--> %s (%s)%n", entity, entity.getType());
+      final Collection<EntityAttribute> entityAttributes = entity.getEntityAttributes();
+      for (final EntityAttribute entityAttribute : entityAttributes) {
+        System.out.printf("       - %s (%s)%n", entityAttribute, entityAttribute.getType());
+      }
       for (final Relationship relationship : entity.getRelationships()) {
         System.out.printf("     o--> %s (%s)%n", relationship, relationship.getType());
       }

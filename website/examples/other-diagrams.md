@@ -8,62 +8,7 @@ Before running this example, complete the setup in [Getting Started](getting-sta
 
 > Replace with the connection options for your chosen database. See [Getting Started](getting-started-examples.md).
 
-
-### Mermaid ER Diagram
-
-  ```sh
-  schemacrawler \
-    --server postgresql \
-    --host postgresql \
-    --database schemacrawler \
-    --user schemacrawler \
-    --password schemacrawler \
-    --info-level standard \
-    --command script \
-    --script mermaid.py \
-    --output-file share/output.mmd
-  ```
-
-The output file `output.mmd` will appear in your working directory on the host. Paste its contents into the [Mermaid Live Editor](https://mermaid-js.github.io/mermaid-live-editor) to view the diagram.
-
-
-### DBML for dbdiagram.io
-
-  ```sh
-  schemacrawler \
-    --server postgresql \
-    --host postgresql \
-    --database schemacrawler \
-    --user schemacrawler \
-    --password schemacrawler \
-    --info-level standard \
-    --command script \
-    --script dbml.py \
-    --output-file share/output.dbml
-```
-
-The output file `output.dbml` will appear in your working directory on the host. Paste its contents into [dbdiagram.io](https://dbdiagram.io/d) to view and share the diagram.
-
-
-### PlantUML ER Diagram
-
-  ```sh
-  schemacrawler \
-    --server postgresql \
-    --host postgresql \
-    --database schemacrawler \
-    --user schemacrawler \
-    --password schemacrawler \
-    --info-level standard \
-    --command script \
-    --script plantuml.py \
-    --output-file share/output.puml
-```
-
-The output file `output.puml` will appear in your working directory on the host. Paste its contents into the [PlantUML online server](http://www.plantuml.com/plantuml/umla) to render the diagram.
-
-> Replace with the connection options for your chosen database. See [Getting Started](getting-started-examples.md).
-
+**Run through all the examples on [diagrams page](diagramming.md).**
 
 ## Resource Files
 

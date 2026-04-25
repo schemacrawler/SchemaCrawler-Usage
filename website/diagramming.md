@@ -159,7 +159,92 @@ configuration file, `schemacrawler.config.properties`, and edit the line with
 
 ## Mermaid Diagrams
 
-SchemaCrawler can generate [Mermaid Entity Relationship Diagrams](https://mermaid-js.github.io/mermaid/#/entityRelationshipDiagram) for your database. Run SchemaCrawler with a Docker command similar to:
+SchemaCrawler can generate [Mermaid Entity Relationship Diagrams](https://mermaid-js.github.io/mermaid/#/entityRelationshipDiagram) for your database. Run SchemaCrawler with a command similar to:
+
+```sh
+schemacrawler \
+--server sqlite \
+--database sc.db \
+--info-level standard \
+--command template \
+--templating-language velocity \
+--template mermaid.vm \
+--output-file sc.mmd
+```
+
+(If you are using Windows PowerShell, replace the backslashes "\" with back-ticks "`".) 
+Generate a diagram by pasting the contents of "sc.mmd" into [mermaid.live](https://mermaid.live/).
+The Apache Velocity templates can be modified by providing a path to the modified copy.
+
+
+## PlantUML Diagrams
+
+SchemaCrawler can generate [PlantUML diagrams](https://plantuml.com/) for your database. 
+Run SchemaCrawler with a command similar to:
+
+```sh
+schemacrawler \
+--server sqlite \
+--database sc.db \
+--info-level standard \
+--command template \
+--templating-language velocity \
+--template plantuml.vm \
+--output-file sc.puml
+```
+
+(If you are using Windows PowerShell, replace the backslashes "\" with back-ticks "`".) 
+Generate a diagram by pasting the contents of "sc.puml" into [PlantText](https://www.planttext.com/).
+The Apache Velocity templates can be modified by providing a path to the modified copy.
+
+
+## dbdiagram.io Diagrams
+
+SchemaCrawler can generate [dbdiagram.io diagrams](https://dbdiagram.io/home) for your database. 
+Run SchemaCrawler with a command similar to:
+
+```sh
+schemacrawler \
+--server sqlite \
+--database sc.db \
+--info-level standard \
+--command template \
+--templating-language velocity \
+--template dbml.vm \
+--output-file sc.dbml
+```
+
+(If you are using Windows PowerShell, replace the backslashes "\" with back-ticks "`".) 
+Generate a diagram by pasting the contents of "sc.dbml" into [dbdiagram.io](https://dbdiagram.io/d).
+The Apache Velocity templates can be modified by providing a path to the modified copy.
+
+
+## QuickDBD Diagrams
+
+SchemaCrawler can generate [QuickDBD diagrams](https://www.quickdatabasediagrams.com/) for your database. 
+Run SchemaCrawler with a command similar to:
+
+```sh
+schemacrawler \
+--server sqlite \
+--database sc.db \
+--info-level standard \
+--command template \
+--templating-language velocity \
+--template quickdbd.vm \
+--output-file sc.quickdbd
+```
+
+(If you are using Windows PowerShell, replace the backslashes "\" with back-ticks "`".) 
+Generate a diagram by pasting the contents of "sc.quickdbd" into [QuickDBD](https://app.quickdatabasediagrams.com/#/).
+The Apache Velocity templates can be modified by providing a path to the modified copy.
+
+
+## Diagrams Generated From Python Scripts
+
+SchemaCrawler provides Python scripts that can generate these same diagrams. Running Python requires GraalVM, 
+which is provided in the SchemaCrawler Docker image. You can use the Python scripts as shown in the example below.
+The Python scripts can be modified by providing a path to the modified copy.
 
 ```sh
 docker run \
@@ -171,67 +256,12 @@ schemacrawler/schemacrawler \
 --database sc.db \
 --info-level standard \
 --command script \
---grep-tables BookAuthors \
---parents 1 \
 --script-language python \
 --script mermaid.py \
 --output-file share/sc.mmd
 ```
 
 (If you are using Windows PowerShell, replace the backslashes "\" with back-ticks "`".) 
-Generate a diagram by pasting the contents of "sc.mmd" into [mermaid.live](https://mermaid.live/).
-
-
-## PlantUML Diagrams
-
-SchemaCrawler can generate [PlantUML diagrams](https://plantuml.com/) for your database. 
-Run SchemaCrawler with a Docker command similar to:
-
-```sh
-docker run \
---mount type=bind,source="$(pwd)",target=/home/schcrwlr/share \
---rm -it \
-schemacrawler/schemacrawler \
-/opt/schemacrawler/bin/schemacrawler.sh \
---server sqlite \
---database sc.db \
---info-level standard \
---command script \
---grep-tables BookAuthors \
---parents 1 \
---script-language python \
---script plantuml.py \
---output-file share/sc.puml
-```
-
-(If you are using Windows PowerShell, replace the backslashes "\" with back-ticks "`".) 
-Generate a diagram by pasting the contents of "sc.puml" into [PlantText](https://www.planttext.com/).
-
-
-## dbdiagram.io Diagrams
-
-SchemaCrawler can generate [dbdiagram.io diagrams](https://dbdiagram.io/home) for your database. 
-Run SchemaCrawler with a Docker command similar to:
-
-```sh
-docker run \
---mount type=bind,source="$(pwd)",target=/home/schcrwlr/share \
---rm -it \
-schemacrawler/schemacrawler \
-/opt/schemacrawler/bin/schemacrawler.sh \
---server sqlite \
---database sc.db \
---info-level standard \
---command script \
---grep-tables BookAuthors \
---parents 1 \
---script-language python \
---script dbml.py \
---output-file share/sc.dbml
-```
-
-(If you are using Windows PowerShell, replace the backslashes "\" with back-ticks "`".) 
-Generate a diagram by pasting the contents of "sc.dbml" into [dbdiagram.io](https://dbdiagram.io/d).
 
 
 ## User Contributed Diagram Scripts
