@@ -137,3 +137,11 @@ For more details, please refer to the [javadocs](https://javadoc.io/doc/us.fateh
 <script src="https://gist.github.com/schemacrawler/63e4b8cb0515c6e928e7a9a419f46411.js"></script>
 More code examples are at [Code Examples Using the SchemaCrawler API](code-examples.md).
 
+
+
+## Acknowledgements
+
+SchemaCrawler is grateful to
+
+- [Adrien Sales](https://www.linkedin.com/in/adrien-sales) and [Benjamin König](https://github.com/bekoenig) for developing the ecosystem
+- [<img src="https://resources.jetbrains.com/storage/products/company/brand/logos/jetbrains.svg" alt="JetBrains logo" height="20" style="vertical-align: middle;">](https://jb.gg/OpenSource) for providing tooling support
