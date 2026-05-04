@@ -2,6 +2,16 @@
 
 SchemaCrawler release notes.
 
+
+<a name="v17.11.0"></a>
+## Release 17.11.0 - 2026-04-30
+
+- Create a catalog reducer pattern
+- Reorganize code to remove cycles in packages
+- Add stronger architecture tests
+- Calculate load summaries for catalog and ER model
+
+
 <a name="v17.10.2"></a>
 ## Release 17.10.2 - 2026-04-20
 
