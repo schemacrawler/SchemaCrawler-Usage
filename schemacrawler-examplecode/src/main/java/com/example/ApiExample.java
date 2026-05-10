@@ -8,9 +8,8 @@
 
 package com.example;
 
-import static schemacrawler.utility.MetaDataUtility.isView;
-
 import java.util.logging.Level;
+
 import schemacrawler.schema.Catalog;
 import schemacrawler.schema.Column;
 import schemacrawler.schema.Schema;
@@ -55,7 +54,7 @@ public final class ApiExample {
       System.out.println(schema);
       for (final Table table : catalog.getTables(schema)) {
         System.out.print("o--> " + table);
-        if (isView(table)) {
+        if (table.getTableType().isView()) {
           System.out.println(" (VIEW)");
         } else {
           System.out.println();
