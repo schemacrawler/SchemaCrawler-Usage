@@ -3,6 +3,13 @@
 SchemaCrawler release notes.
 
 
+<a name="v17.11.2"></a>
+## Release 17.11.2 - 2026-05-31
+
+- Refactor object to string, and produce valid JSON logs
+- Show non-entities as well in Mermaid diagram
+
+
 <a name="v17.11.1"></a>
 ## Release 17.11.1 - 2026-05-08
 
