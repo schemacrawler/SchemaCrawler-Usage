@@ -47,5 +47,6 @@
   },
   "workbench.colorTheme": "GitHub Light",
   "workbench.iconTheme": "material-icon-theme",
-  "git.autoStash": true
+  "git.autoStash": true,
+  "java.compile.nullAnalysis.mode": "automatic"
 }

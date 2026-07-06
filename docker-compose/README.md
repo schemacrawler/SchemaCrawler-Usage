@@ -66,7 +66,7 @@
 - To start SchemaCrawler with PostgreSQL, run
   `docker compose -f schemacrawler.yaml -f postgresql.yaml up -d`
 - Create a test PostgreSQL database schema, run
-  `docker exec -it schemacrawler ./testdb/createtestschema.sh --url "jdbc:postgresql://postgresql:5432/schemacrawler?ApplicationName=SchemaCrawler;loggerLevel=DEBUG" --user schemacrawler --password schemacrawler --debug`
+  `docker exec -it schemacrawler "/opt/schemacrawler/bin/testdb.sh" --url "jdbc:postgresql://postgresql:5432/schemacrawler?ApplicationName=SchemaCrawler;loggerLevel=DEBUG" --user schemacrawler --password schemacrawler --debug`
 
 ### Testing
 
@@ -90,7 +90,7 @@
 - To start SchemaCrawler with Oracle, run
   `docker compose -f schemacrawler.yaml -f oracle.yaml up -d`
 - Create a test Oracle database schema, run
-  `docker exec -it schemacrawler ./testdb/createtestschema.sh --url "jdbc:oracle:thin:@//oracle:1521/freepdb1" --user "SYS AS SYSDBA" --password test --debug`
+  `docker exec -it schemacrawler "/opt/schemacrawler/bin/testdb.sh" --url "jdbc:oracle:thin:@//oracle:1521/freepdb1" --user "SYS AS SYSDBA" --password test --debug`
 
 ### Testing
 
@@ -114,7 +114,7 @@
 - To start SchemaCrawler with Microsoft SQL Server, run
   `docker compose -f schemacrawler.yaml -f sqlserver.yaml up -d`
 - Create a test Microsoft SQL Server database schema, run
-  `docker exec -it schemacrawler ./testdb/createtestschema.sh --url "jdbc:sqlserver://sqlserver:1433;databaseName=master;encrypt=false" --user SA --password Schem#Crawl3r --debug`
+  `docker exec -it schemacrawler "/opt/schemacrawler/bin/testdb.sh" --url "jdbc:sqlserver://sqlserver:1433;databaseName=master;encrypt=false" --user SA --password Schem#Crawl3r --debug`
 
 ### Testing
 
@@ -138,7 +138,7 @@
 - To start SchemaCrawler with MySQL, run
   `docker compose -f schemacrawler.yaml -f mysql.yaml up -d`
 - Create a test MySQL database schema, run
-  `docker exec -it schemacrawler ./testdb/createtestschema.sh --url "jdbc:mysql://mysql:3306/books?disableMariaDbDriver&useInformationSchema=true" --user root --password schemacrawler --debug`
+  `docker exec -it schemacrawler "/opt/schemacrawler/bin/testdb.sh" --url "jdbc:mysql://mysql:3306/books?disableMariaDbDriver&useInformationSchema=true" --user root --password schemacrawler --debug`
 
 ### Testing
 
@@ -163,7 +163,7 @@
 - To start SchemaCrawler with IBM DB2, run
   `docker compose -f schemacrawler.yaml -f db2.yaml up -d`
 - Create a test IBM DB2 database schema, run
-  `docker exec -it schemacrawler ./testdb/createtestschema.sh --url "jdbc:db2://db2:50000/schcrwlr:retrieveMessagesFromServerOnGetMessage=true;" --user books --password SchemaCrawler --debug`
+  `docker exec -it schemacrawler "/opt/schemacrawler/bin/testdb.sh" --url "jdbc:db2://db2:50000/schcrwlr:retrieveMessagesFromServerOnGetMessage=true;" --user books --password SchemaCrawler --debug`
 
 ### Testing
 
@@ -190,7 +190,7 @@ Connect to the IBM DB2 container if needed, run
 - To start SchemaCrawler with MariaDB, run
   `docker compose -f schemacrawler.yaml -f mariadb.yaml up -d`
 - Create a test MariaDB database schema, run
-  `docker exec -it schemacrawler ./testdb/createtestschema.sh --url "jdbc:mariadb://mariadb:3306/books" --user root --password schemacrawler --scripts-resource mysql.scripts.txt --debug`
+  `docker exec -it schemacrawler "/opt/schemacrawler/bin/testdb.sh" --url "jdbc:mariadb://mariadb:3306/books" --user root --password schemacrawler --scripts-resource mysql.scripts.txt --debug`
 
 ### Testing
 
