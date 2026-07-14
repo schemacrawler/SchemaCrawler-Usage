@@ -62,6 +62,9 @@ You can write templates to generate SQL scripts or any other text output.
 However, you will need to download the templating engine separately, since these are
 not part of the SchemaCrawler download.
 
+SchemaCrawler can also generate structured database documentation in [Google OKF format](https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/d44368c15e38e7c92481c5992e4f9b5b421a801d/okf/SPEC.md)
+using [SchemaCrawler Scribe](scribe.md).
+
 Explore the SchemaCrawler command-line with a [live online tutorial](https://killercoda.com/schemacrawler). 
 The tutorial works from within any browser with no software or plugins needed.
 
