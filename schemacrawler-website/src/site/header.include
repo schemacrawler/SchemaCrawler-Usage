@@ -134,6 +134,7 @@
                     <a class="dropdown-item" href="scripting.html">Scripting</a>
                     <a class="dropdown-item" href="lint.html">Lint</a>
                     <a class="dropdown-item" href="mcpserver.html">MCP Server</a>
+                    <a class="dropdown-item" href="scribe.html">SchemaCrawler Scribe for Google OKF</a>
                     <a class="dropdown-item" href="serialize.html">Serialization</a>
                     <a class="dropdown-item" href="implicit-associations.html">Implicit Associations</a>
                     <a class="dropdown-item" href="offline.html">Offline Snapshots</a>
