@@ -2,6 +2,13 @@
 
 SchemaCrawler release notes.
 
+
+<a name="v17.11.5"></a>
+## Release 17.11.5 - 2026-07-10
+
+- Add SchemaCrawler Scribe to generate Google OKF for database schemas
+
+
 <a name="v17.11.4"></a>
 ## Release 17.11.4 - 2026-06-24
 
