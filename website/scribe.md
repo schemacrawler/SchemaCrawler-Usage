@@ -10,11 +10,16 @@ SchemaCrawler Scribe is useful when you want database documentation that stays c
 
 ## Benefits
 
-- Allow AI agents to advise you on SQL and database information
-- Generate documentation directly from schema metadata
-- Keep documentation versioned with source code
-- Produce human-readable and machine-parseable artifacts
-- Use generated documentation in Visual Studio Code or other Markdown-based tooling
+- **[SchemaCrawler Scribe](https://www.schemacrawler.com/scribe.html)** produces clean, navigable Markdown documentation from live database metadata, packaged as a [Google OKF](https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md) bundle.
+**[Google OKF](https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md) output** is cross‑linked Markdown with YAML frontmatter, readable by humans as well as AI agents, making the schema navigable as a knowledge graph and fully diff‑friendly in Git.
+- **Supports all major relational databases** including PostgreSQL, MySQL, MariaDB, Oracle, Microsoft SQL Server, IBM DB2, Snowflake, SQLite, and more.
+- **[GitHub Docs frontmatter](https://docs.github.com/en/contributing/writing-for-github-docs/using-yaml-frontmatter)** is included in every generated page, allowing the OKF bundle to be turned into a full website using standard static‑site tools like Hugo or Jekyll on GitHub Pages.
+- **Cross‑linked schema navigation**: tables, columns, routines, and foreign keys become Markdown links, with auto‑generated directory indexes for easy browsing.
+- **Mermaid diagrams** are embedded directly into Markdown to visualize relationships and structure.
+- **Comprehensive schema coverage**: tables, columns, keys, constraints, routines, triggers, references, cross‑reference pages, and optional lint or anomaly reports.
+- **Localized output** supports multiple languages for international teams.
+- **Git‑native workflow**: everything is plain text, diff‑friendly, and ideal for version control. It is deterministically generated for the same database schema.
+
 
 ## Usage
 

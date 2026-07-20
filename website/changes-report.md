@@ -3,8 +3,19 @@
 SchemaCrawler release notes.
 
 
-<a name="v17.11.5"></a>
-## Release 17.11.5 - 2026-07-10
+<a name="v17.12.2"></a>
+## Release v17.12.2 - 2026-07-18
+
+- Add a security check to make sure that output files cannot be created outside of the current working directory
+- Set better default title for SchemaCrawler Scribe
+- Add Portuguese translation to SchemaCrawler Scribe
+- Show SchemaCrawler Scribe lints report sorted by severity
+- Show table lints in SchemaCrawler Scribe
+- Support [GitHub Docs frontmatter](https://docs.github.com/en/contributing/writing-for-github-docs/using-yaml-frontmatter)
+
+
+<a name="v17.12.1"></a>
+## Release v17.12.1 - 2026-07-10
 
 - Add SchemaCrawler Scribe to generate Google OKF for database schemas
 
