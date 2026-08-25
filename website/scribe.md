@@ -48,3 +48,4 @@ Use backtick (`) instead of backslash (\) for command-line continuations in Powe
 ## Also See
 
 - [SchemaCrawler AI MCP Server](https://github.com/schemacrawler/SchemaCrawler-AI-MCP-Server-Usage)
+- [SchemaSpy Adapter](schemaspy-adapter.md)
