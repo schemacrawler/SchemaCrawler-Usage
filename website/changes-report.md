@@ -2,6 +2,24 @@
 
 SchemaCrawler release notes.
 
+<a name="v17.14.1"></a>
+## Release v17.14.1 - 2026-08-22
+
+- Remove Apache Hive connector and do not distribute driver - retain the tests
+- Support spy JDBC drivers
+- Determine the database connector from the JDBC connection URL, instead of using a regular expression matcher
+
+
+<a name="v17.14.0"></a>
+## Release v17.14.0 - 2026-08-21
+
+- Add lightweight database connector framework with YAML files; refactored database connector parsing to use declarative YAML files plus programmatic additions
+- Add database connectors for servers "access", "cassandra", "clickhouse", "duckdb", "h2", "hive", "snowflake", "trino"
+- Add new database connector and tests for Apache Hive
+- Move title moved into SchemaCrawlerOptions, from OutputOptions
+- Remove ability to configure `SchemaInfoMetadataRetrievalStrategy` from configuration properties
+- Update SchemaCrawler Scribe YAML front-matter to Google OKF v0.2 standard
+
 
 <a name="v17.12.2"></a>
 ## Release v17.12.2 - 2026-07-18
