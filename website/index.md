@@ -9,7 +9,7 @@ output serves for database documentation, and is designed to be
 SchemaCrawler also generates [schema diagrams.](diagramming.md) You can
 [execute scripts](scripting.md) in any standard scripting language against
 your database. You can find potential schema design issues with
-[lint.](lint.md)
+[lint,](lint.md) and rank tables and views by [graph metrics and importance.](importance.md)
 
 SchemaCrawler supports almost any database that has a JDBC driver, but for
 convenience is [bundled with drivers](database-support.md) for some commonly used

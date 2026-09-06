@@ -21,10 +21,10 @@ import schemacrawler.schemacrawler.SchemaCrawlerOptions;
 import schemacrawler.schemacrawler.SchemaCrawlerOptionsBuilder;
 import schemacrawler.schemacrawler.SchemaInfoLevelBuilder;
 import schemacrawler.tools.utility.SchemaCrawlerUtility;
-import us.fatehi.utility.LoggingConfig;
 import us.fatehi.utility.datasource.DatabaseConnectionSource;
 import us.fatehi.utility.datasource.DatabaseConnectionSources;
 import us.fatehi.utility.datasource.MultiUseUserCredentials;
+import us.fatehi.utility.logging.LoggingConfig;
 
 public final class ERModelExample {
 

@@ -22,10 +22,10 @@ import schemacrawler.tools.command.text.schema.options.TextOutputFormat;
 import schemacrawler.tools.executable.SchemaCrawlerExecutable;
 import schemacrawler.tools.options.OutputOptions;
 import schemacrawler.tools.options.OutputOptionsBuilder;
-import us.fatehi.utility.LoggingConfig;
 import us.fatehi.utility.datasource.DatabaseConnectionSource;
 import us.fatehi.utility.datasource.DatabaseConnectionSources;
 import us.fatehi.utility.datasource.MultiUseUserCredentials;
+import us.fatehi.utility.logging.LoggingConfig;
 
 public final class ExecutableExample {
 

@@ -15,10 +15,10 @@ import java.util.logging.Level;
 import schemacrawler.schema.ResultsColumn;
 import schemacrawler.schema.ResultsColumns;
 import schemacrawler.tools.utility.SchemaCrawlerUtility;
-import us.fatehi.utility.LoggingConfig;
 import us.fatehi.utility.datasource.DatabaseConnectionSource;
 import us.fatehi.utility.datasource.DatabaseConnectionSources;
 import us.fatehi.utility.datasource.MultiUseUserCredentials;
+import us.fatehi.utility.logging.LoggingConfig;
 
 public final class ResultSetExample {
 
