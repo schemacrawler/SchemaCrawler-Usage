@@ -9,7 +9,6 @@
 package com.example;
 
 import java.util.logging.Level;
-
 import schemacrawler.schema.Catalog;
 import schemacrawler.schema.Column;
 import schemacrawler.schema.Schema;
@@ -20,10 +19,10 @@ import schemacrawler.schemacrawler.SchemaCrawlerOptions;
 import schemacrawler.schemacrawler.SchemaCrawlerOptionsBuilder;
 import schemacrawler.schemacrawler.SchemaInfoLevelBuilder;
 import schemacrawler.tools.utility.SchemaCrawlerUtility;
-import us.fatehi.utility.LoggingConfig;
 import us.fatehi.utility.datasource.DatabaseConnectionSource;
 import us.fatehi.utility.datasource.DatabaseConnectionSources;
 import us.fatehi.utility.datasource.MultiUseUserCredentials;
+import us.fatehi.utility.logging.LoggingConfig;
 
 public final class ApiExample {
 
