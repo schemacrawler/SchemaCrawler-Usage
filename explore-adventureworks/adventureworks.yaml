@@ -16,7 +16,7 @@ services:
       POSTGRES_PASSWORD: schemacrawler
 
   schemacrawler:
-    image: schemacrawler/schemacrawler:extra-early-access-release
+    image: schemacrawler/schemacrawler:latest
     container_name: schemacrawler
     stdin_open: true
     tty: true

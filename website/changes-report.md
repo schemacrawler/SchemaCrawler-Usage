@@ -3,6 +3,15 @@
 SchemaCrawler release notes.
 
 
+<a name="v17.15.1"></a>
+## Release v17.15.1 - 2026-09-07
+
+- Fix issue with loading offline databases
+- Reorganize code that works with JDBC
+- Make offline database connector a lightweight connector
+- Remove the offline jar
+
+
 <a name="v17.15.0"></a>
 ## Release v17.15.0 - 2026-09-06
 

@@ -35,11 +35,6 @@ SchemaCrawler can save snapshots of the database schema metadata model, and load
 even when the source database is offline. This is done by using standard Java serialization. 
 SchemaCrawler cannot guarantee that the metadata model is not used an malicious attack vector.
 
-This functionality is provided in the "schemacrawler-offline"
-jar file. If you do not plan to use SchemaCrawler offline snapshots, delete the "schemacrawler-offline"
-jar file from your distribution. If you are using SchemaCrawler programmatically, remove the
-dependency on "schemacrawler-offline".
-
 
 ## Microsoft SQL Server
 
