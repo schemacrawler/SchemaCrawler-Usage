@@ -12,12 +12,22 @@ services:
         protocol: tcp
         mode: host
     environment:
+      # (put these in your .env file)
       POSTGRES_USER: schemacrawler
       POSTGRES_PASSWORD: schemacrawler
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U schemacrawler"]
+      interval: 5s
+      timeout: 5s
+      retries: 4
+      start_period: 8s
 
   schemacrawler:
     image: schemacrawler/schemacrawler:latest
     container_name: schemacrawler
+    depends_on:
+      adventureworks:
+        condition: service_healthy
     stdin_open: true
     tty: true
     volumes:

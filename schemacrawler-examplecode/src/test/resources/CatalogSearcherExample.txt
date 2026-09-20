@@ -1,0 +1,14 @@
+o--> TABLE3_FK
+     o--> TABLE3_FK.ENTITY3_ID
+     o--> TABLE3_FK.ENTITY_ID
+     o--> TABLE3_FK.COL32
+     o--> TABLE3_FK.COL33
+     o--> TABLE3_FK.COL34
+     o--> TABLE3_FK.COL35
+o--> TABLE5_FK
+     o--> TABLE5_FK.ENTITY5_ID
+     o--> TABLE5_FK.ENTITY_ID
+     o--> TABLE5_FK.COL32
+     o--> TABLE5_FK.COL33
+     o--> TABLE5_FK.COL34
+     o--> TABLE5_FK.COL35

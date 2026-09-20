@@ -4,6 +4,13 @@ DEPLOYMENT.md
 **/schemacrawler-examplecode/src/main/java/Issue166.java
 **/schemacrawler-examplecode/src/main/java/Issue167.java
 
+# Exclude exploration artifacts
+explore-adventureworks/*.pdf
+explore-adventureworks/*.dbml
+explore-adventureworks/*.mermaid
+explore-adventureworks/*.html
+explore-adventureworks/*.json
+
 **/target*
 tree*.txt
 **/gpl*.*
@@ -256,3 +263,4 @@ gradle-app.setting
 *.hprof
 
 # End of https://www.toptal.com/developers/gitignore/api/java,eclipse,intellij+all,visualstudiocode,maven,gradle
+

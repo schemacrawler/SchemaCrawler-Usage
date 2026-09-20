@@ -16,6 +16,7 @@ import static us.fatehi.test.utility.extensions.FileHasContent.hasSameContentAs;
 import static us.fatehi.test.utility.extensions.FileHasContent.outputOf;
 
 import com.example.ApiExample;
+import com.example.CatalogSearcherExample;
 import com.example.ERModelExample;
 import com.example.ExecutableExample;
 import com.example.ResultSetExample;
@@ -43,6 +44,15 @@ public class ExampleTest {
 
     assertThat(outputOf(streams.err()), hasNoContent());
     assertThat(outputOf(streams.out()), hasSameContentAs(classpathResource("ERModelExample.txt")));
+  }
+
+  @Test
+  public void catalogSearcherExample(final CapturedSystemStreams streams) throws Exception {
+    CatalogSearcherExample.main(new String[0]);
+
+    assertThat(outputOf(streams.err()), hasNoContent());
+    assertThat(
+        outputOf(streams.out()), hasSameContentAs(classpathResource("CatalogSearcherExample.txt")));
   }
 
   @Test
