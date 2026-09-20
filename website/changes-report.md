@@ -2,6 +2,23 @@
 
 SchemaCrawler release notes.
 
+<a name="v17.15.4"></a>
+## Release v17.15.4 - 2026-09-20
+
+- Fix issue with reading threading configuration from environmental variables
+- Add better sorting logic for table types
+
+
+<a name="v17.15.3"></a>
+## Release v17.15.3 - 2026-09-20
+
+- Add `SC_LOAD_MAX_THREADS`, and `SC_LOAD_TIMEOUT_SECONDS` to configure task execution - fixes #2495
+- Task timeouts throw an explicit exception indicating timeout
+- Removed ability to specify number of threads in configuration file - this has to come from environmental variables
+- Add powerful new named object filters for searching the catalog, in `schemacrawler.filter.NamedObjectFilters`
+- Add a powerful catalog search in `schemacrawler.filter.CatalogSearcher`
+- Regular expression searches from the commandline match ignoring quotes in names (quoted by [, ", `) 
+
 
 <a name="v17.15.1"></a>
 ## Release v17.15.1 - 2026-09-07

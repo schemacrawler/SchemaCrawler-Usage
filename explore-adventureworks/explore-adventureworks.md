@@ -43,16 +43,30 @@
 
 ## Model Your Existing Database
 
+(Use SQLite database to get around license limitations in modeling tools.)
+
 - Generate and edit a dbdiagram.io diagram
-  `schemacrawler --server postgresql --host adventureworks --database postgres --user schemacrawler --password schemacrawler --info-level maximum --command script --grep-tables ".*\.\"Employee\"" --children 1 --scripting-language python --script dbml.py --output-file share/adventureworks.dbml`
+  `schemacrawler --server sqlite --database sc.db --info-level maximum --command script --scripting-language python --script dbml.py --output-file share/adventureworks.dbml`
 - Generate and edit a mermaid diagram
-  `schemacrawler --server postgresql --host adventureworks --database postgres --user schemacrawler --password schemacrawler --info-level maximum --command script --grep-tables ".*\.\"Employee\"" --children 1 --scripting-language python --script mermaid.py --output-file share/adventureworks.mermaid`
+  `schemacrawler --server sqlite --database sc.db --info-level maximum --command script --scripting-language python --script mermaid.py --output-file share/adventureworks.mermaid`
+
+
+## Importance
+
+- Identify important tables, and clusters
+  `schemacrawler --server postgresql --host adventureworks --database postgres --user schemacrawler --password schemacrawler --info-level maximum --command importance`
+
+
+## Using AI
+
+- Generate Google Open Knowledge Framework (OKF) documentation
+  `schemacrawler --server postgresql --host adventureworks --database postgres --user schemacrawler --password schemacrawler --info-level standard --command scribe --grep-tables ".*\.\"Employee\"" --expanded-output --output-file share/okf`
 
 
 ## Other Commands
 
-- Guess at weak associations in a diagram
-  `schemacrawler --server postgresql --host adventureworks --database postgres --user schemacrawler --password schemacrawler --info-level standard --command schema --grep-columns .*\.\"+BusinessEntityID\"+ --weak-associations --output-file share/businessentityid-tables-weak-associations.pdf`
+- Guess at implicit associations in a diagram
+  `schemacrawler --server postgresql --host adventureworks --database postgres --user schemacrawler --password schemacrawler --info-level standard --command schema --grep-columns .*\.\"+BusinessEntityID\"+ --implicit-associations --output-file share/businessentityid-tables-implicit-associations.pdf`
 - Find schema design problems with lint
   `schemacrawler --server postgresql --host adventureworks --database postgres --user schemacrawler --password schemacrawler --info-level standard --command lint --grep-tables ".*\.\"Employee\"" --children 1`
 - See row counts employee related tables in the database
