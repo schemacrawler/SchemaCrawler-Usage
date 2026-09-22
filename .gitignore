@@ -10,6 +10,7 @@ explore-adventureworks/*.dbml
 explore-adventureworks/*.mermaid
 explore-adventureworks/*.html
 explore-adventureworks/*.json
+explore-adventureworks/okf/
 
 **/target*
 tree*.txt
