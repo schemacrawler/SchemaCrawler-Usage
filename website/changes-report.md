@@ -2,6 +2,13 @@
 
 SchemaCrawler release notes.
 
+<a name="v17.15.5"></a>
+## Release v17.15.5 - 2026-09-22
+
+- Fix #2501 - do not fail on badly formatted YAML files for lightweight database connectors
+- Report betweenness centrality as a percentage in the importance report
+
+
 <a name="v17.15.4"></a>
 ## Release v17.15.4 - 2026-09-20
 
