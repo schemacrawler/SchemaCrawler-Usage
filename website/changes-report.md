@@ -2,6 +2,14 @@
 
 SchemaCrawler release notes.
 
+
+<a name="v17.15.6"></a>
+## Release v17.15.6 - 2026-09-25
+
+- Add option to grep for routine names
+- Fix https://github.com/schemacrawler/SchemaCrawler-Core/issues/331
+
+
 <a name="v17.15.5"></a>
 ## Release v17.15.5 - 2026-09-22
 
