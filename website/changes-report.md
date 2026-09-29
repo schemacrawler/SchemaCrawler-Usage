@@ -2,6 +2,11 @@
 
 SchemaCrawler release notes.
 
+<a name="v17.15.7"></a>
+## Release v17.15.7 - 2026-09-28
+
+- Add full-featured H2 database connector - fixes https://github.com/schemacrawler/SchemaCrawler/issues/2515
+
 
 <a name="v17.15.6"></a>
 ## Release v17.15.6 - 2026-09-25

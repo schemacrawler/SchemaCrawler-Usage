@@ -394,6 +394,27 @@ SchemaCrawler should keep these search modes distinct:
 
 This keeps the database-facing representation stable while giving callers explicit search behavior.
 
+## Preserve Case Sensitivity In General Regular-Expression Rules
+
+`RegularExpressionRule`, `RegularExpressionInclusionRule`, and
+`RegularExpressionExclusionRule` are general-purpose inclusion rules. They MUST preserve the
+case-sensitivity and other flags supplied by the caller rather than adding
+`Pattern.CASE_INSENSITIVE` implicitly.
+
+These rules are used not only for catalog searches but also as primary inclusion and exclusion
+rules while SchemaCrawler retrieves schemas, tables, routines, columns, and parameters. Making
+them case-insensitive by default would silently broaden crawling filters and prevent callers from
+selecting quoted, case-sensitive database objects precisely.
+
+Callers that need case-insensitive object-name search should use
+`NamedObjectFilters.nameRegex(String)` or `NamedObjectFilters.fullNameRegex(String)`. Callers
+that construct a `RegularExpressionInclusionRule` or `RegularExpressionExclusionRule` retain
+control by supplying a `Pattern` with the desired flags, or an inline regular-expression flag such
+as `(?i)`.
+
+`Pattern.DOTALL` is independent of case sensitivity. It is appropriate for patterns that search
+multiline remarks or definition text, but it does not imply case-insensitive matching.
+
 ## Future Reference Checklist
 
 Use this checklist when changing code that deals with database object names:
