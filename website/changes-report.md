@@ -2,6 +2,14 @@
 
 SchemaCrawler release notes.
 
+<a name="v17.16.0"></a>
+## Release v17.16.0 - 2026-10-12
+
+- Add immutable catalog projections of database objects with consistent enumeration and lookup, composable limit, filter and grep options, and empty table filtering
+- Remove catalog reduction and undo APIs; keep command projections separate from the retained loaded catalog
+- Apply command projection after offline snapshot loading without changing the snapshot's serialized active membership
+
+
 <a name="v17.15.7"></a>
 ## Release v17.15.7 - 2026-09-28
 
@@ -2402,4 +2410,3 @@ and [dbdiagram.io](https://dbdiagram.io/home) diagrams
 * New website.
 * Worked around an issue with the Sybase driver, that provides primary keys in a different order than most other drivers.
 * Improved logging, and made the log level in the configuration really work.
-

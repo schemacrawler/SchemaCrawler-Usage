@@ -9,6 +9,12 @@ procedure and function based on regular expressions, in addition to the grep
 functionality. This can be useful, say, when you want to search through your
 schema to find all tables that have a CUSTOMER_ID column, for example.
 
+Grep is applied when selecting objects for a command, after metadata is
+loaded. In the interactive shell, changing grep settings affects the next
+execution without reloading the baseline. See the
+[execution pipeline](schemacrawler-execution-pipeline.md) for how grep,
+filters, live limits, and offline snapshots interact.
+
 To find tables with certain names, run SchemaCrawler with command-line options
 similar to 
 `--info-level=standard --command=list --grep-columns=.*\\..*CUSTOMER.*\\..*` 
