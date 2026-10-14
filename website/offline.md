@@ -15,6 +15,13 @@ producing output in a variety of formats.
 
 ## How to Create an Offline Catalog Snapshot
 
+An offline catalog is loaded with the active database object membership stored in its
+serialized snapshot. Executing a command applies limits, filters, and grep settings
+to create a command-specific catalog projection after loading; projections do
+not rewrite or permanently narrow the stored snapshot. See the
+[execution pipeline](schemacrawler-execution-pipeline.md) for the projection
+and reload lifecycle.
+
 Use the [`serialize`](serialize.md) command with `--output-format=ser` to 
 serialize the database schema metadata into a binary Java serialization
 format file. It is best to create the snapshot with the `--info-level=maximum`
