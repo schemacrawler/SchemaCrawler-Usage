@@ -60,49 +60,22 @@ This isolates catalog projection and invocation-owned results. It does not chang
 
 ### SchemaCrawler-Core
 
-`SchemaCrawler-Core\schemacrawler-api\src\main\java\schemacrawler\filter\CatalogProjectionBuilder.java`
-builds a projected `Catalog`. `withOptions(SchemaCrawlerOptions)` accepts the
-composed options, and `build()` filters eligible objects from the source.
+`SchemaCrawler-Core\schemacrawler-api\src\main\java\schemacrawler\filter\CatalogProjectionBuilder.java` builds a projected `Catalog`. `withOptions(SchemaCrawlerOptions)` accepts the composed options, and `build()` filters eligible objects from the source.
 
-`SchemaCrawler-Core\schemacrawler-api\src\main\java\schemacrawler\filter\CatalogProjection.java`
-stores the projected membership and implements enumeration, lookup, and
-projection-owned catalog attributes. It retains references to the projected
-database objects rather than deep-copying them.
+`SchemaCrawler-Core\schemacrawler-api\src\main\java\schemacrawler\filter\CatalogProjection.java` stores the projected membership and implements enumeration, lookup, and projection-owned catalog attributes. It retains references to the projected database objects rather than deep-copying them.
 
-`SchemaCrawler-Core\schemacrawler-api\src\main\java\schemacrawler\schema\Catalog.java`
-defines the ordinary catalog enumeration and lookup API. It does not define
-reduction or undo operations.
+`SchemaCrawler-Core\schemacrawler-api\src\main\java\schemacrawler\schema\Catalog.java` defines the ordinary catalog enumeration and lookup API. It does not define reduction or undo operations.
 
-`SchemaCrawler-Core\schemacrawler-api\src\main\java\schemacrawler\schemacrawler\FilterOptions.java`
-and
-`SchemaCrawler-Core\schemacrawler-api\src\main\java\schemacrawler\schemacrawler\SchemaCrawlerOptions.java`
-define filter, grep, limit, and load options. `SchemaCrawlerOptions.crawlOptions()`
-groups the title, load, and limit settings used to determine whether a shell
-catalog needs reloading.
+`SchemaCrawler-Core\schemacrawler-api\src\main\java\schemacrawler\schemacrawler\FilterOptions.java` and `SchemaCrawler-Core\schemacrawler-api\src\main\java\schemacrawler\schemacrawler\SchemaCrawlerOptions.java` define filter, grep, limit, and load options. `SchemaCrawlerOptions.crawlOptions()` groups the title, load, and limit settings used to determine whether a shell catalog needs reloading.
 
-`SchemaCrawler-Core\schemacrawler-api\src\main\java\schemacrawler\filter\RelatedTableFilter.java`
-expands seed tables in the projection to eligible parents and children.
-`SchemaCrawler-Core\schemacrawler-api\src\main\java\schemacrawler\filter\OmitEmptyTablesFilter.java`
-rejects only tables whose known row count is zero.
+`SchemaCrawler-Core\schemacrawler-api\src\main\java\schemacrawler\filter\RelatedTableFilter.java` expands seed tables in the projection to eligible parents and children. `SchemaCrawler-Core\schemacrawler-api\src\main\java\schemacrawler\filter\OmitEmptyTablesFilter.java` rejects only tables whose known row count is zero.
 
 ### SchemaCrawler
 
-`SchemaCrawler-Core\schemacrawler-loader\src\main\java\schemacrawler\loader\catalog\offline\OfflineCatalogLoader.java`
-loads the serialized catalog through `SerializedCatalogUtility` before later
-projection. The corresponding regression coverage is in
-`SchemaCrawler-Core\schemacrawler-loader\src\test\java\schemacrawler\test\OfflineCatalogLoaderTest.java`.
+`SchemaCrawler-Core\schemacrawler-loader\src\main\java\schemacrawler\loader\catalog\offline\OfflineCatalogLoader.java` loads the serialized catalog through `SerializedCatalogUtility` before later projection. The corresponding regression coverage is in `SchemaCrawler-Core\schemacrawler-loader\src\test\java\schemacrawler\test\OfflineCatalogLoaderTest.java`.
 
-`SchemaCrawler\schemacrawler-commandline\src\main\java\schemacrawler\tools\commandline\state\ShellState.java`
-retains the loaded catalog and compares its loaded `CrawlOptions` with the
-current options. Grep and filter changes do not make that crawl state stale;
-load and limit changes do.
+`SchemaCrawler\schemacrawler-commandline\src\main\java\schemacrawler\tools\commandline\state\ShellState.java` retains the loaded catalog and compares its loaded `CrawlOptions` with the current options. Grep and filter changes do not make that crawl state stale; load and limit changes do.
 
 ### SchemaCrawler-AI
 
-`SchemaCrawler-AI\schemacrawler-ai-core\src\main\java\schemacrawler\tools\ai\tools\FunctionCallback.java`
-creates and configures an executor for each function call.
-`SchemaCrawler-AI\schemacrawler-ai-core\src\main\java\schemacrawler\tools\ai\tools\base\AbstractFunctionExecutor.java`
-builds the invocation's projected catalog and corresponding ER model.
-`SchemaCrawler-AI\schemacrawler-ai-core\src\main\java\schemacrawler\tools\ai\tools\base\AbstractExecutableFunctionExecutor.java`
-executes command-backed functions against that projection and creates
-invocation-specific output.
+`SchemaCrawler-AI\schemacrawler-ai-core\src\main\java\schemacrawler\tools\ai\tools\FunctionCallback.java` creates and configures an executor for each function call. `SchemaCrawler-AI\schemacrawler-ai-core\src\main\java\schemacrawler\tools\ai\tools\base\AbstractFunctionExecutor.java` builds the invocation's projected catalog and corresponding ER model. `SchemaCrawler-AI\schemacrawler-ai-core\src\main\java\schemacrawler\tools\ai\tools\base\AbstractExecutableFunctionExecutor.java` executes command-backed functions against that projection and creates invocation-specific output.

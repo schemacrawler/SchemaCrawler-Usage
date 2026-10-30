@@ -2,6 +2,17 @@
 
 SchemaCrawler release notes.
 
+<a name="v18.0.1"></a>
+## Release v18.0.1 - 2026-10-29
+
+- Move named-object APIs to `schemacrawler.namedobject` 
+- Serialized catalogs and models created with the previous classes are no longer supported
+- Compare catalogs by identity
+- Projections have fixed object membership but allow independent changes to attributes and remarks
+- Make sorting more consistent; this changes the sort order for indexes and routines
+- Deploy on Java 25 Docker images
+
+
 <a name="v17.16.0"></a>
 ## Release v17.16.0 - 2026-10-12
 
