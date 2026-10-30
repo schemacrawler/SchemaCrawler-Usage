@@ -2,26 +2,18 @@
 
 ## Purpose
 
-This document is a reference on how databases handle database-object identifier case, and how
-SchemaCrawler represents, searches, and displays those database object names.
+This document is a reference on how databases handle database-object identifier case, and how SchemaCrawler represents, searches, and displays those database object names.
 
-The first part is database research: it describes identifier storage, identifier resolution, JDBC
-metadata flags, and vendor-specific configuration without taking a SchemaCrawler position. The
-second part states SchemaCrawler's position and points to the relevant code so this can be used as a
-future implementation and design reference.
+The first part is database research: it describes identifier storage, identifier resolution, JDBC metadata flags, and vendor-specific configuration without taking a SchemaCrawler position. The second part states SchemaCrawler's position and points to the relevant code so this can be used as a future implementation and design reference.
 
 The repeated-test discussion is intentionally excluded.
 
 ## Identifier Case Concepts
 
-Before comparing databases, separate the two behaviors that are often compressed into the phrase
-"case sensitivity." A database can change how an identifier is stored, and it can independently
-decide whether differently cased spellings resolve to the same object.
+Before comparing databases, separate the two behaviors that are often compressed into the phrase "case sensitivity." A database can change how an identifier is stored, and it can independently decide whether differently cased spellings resolve to the same object.
 
-1. **Storage or normalization** - whether an identifier is folded to uppercase, folded to lowercase,
-   or retained in its original spelling.
-2. **Resolution** - whether the database resolves different spellings as the same identifier or
-   distinguishes them.
+1. **Storage or normalization** - whether an identifier is folded to uppercase, folded to lowercase, or retained in its original spelling.
+2. **Resolution** - whether the database resolves different spellings as the same identifier or distinguishes them.
 
 Also distinguish:
 
@@ -43,8 +35,7 @@ The four practically useful case modes are:
 
 ### Why `UPPER / CS` Is Usually Not A Useful Mode
 
-If an engine converts every unquoted input to uppercase before lookup, then these references all
-become the same identifier:
+If an engine converts every unquoted input to uppercase before lookup, then these references all become the same identifier:
 
 ```sql
 SELECT * FROM customer;
@@ -52,19 +43,13 @@ SELECT * FROM Customer;
 SELECT * FROM CUSTOMER;
 ```
 
-Consequently, the externally observable behavior is `UPPER / CI`, even if the catalog internally
-compares already-uppercase strings using a case-sensitive comparison. The same reasoning applies to
-`lower / CS`.
+Consequently, the externally observable behavior is `UPPER / CI`, even if the catalog internally compares already-uppercase strings using a case-sensitive comparison. The same reasoning applies to `lower / CS`.
 
-An individual quoted object can be named `"CUSTOMER"` or `"customer"` and still be case-sensitive.
-That is normally part of the broader `preserve / CS` quoted-identifier model, not a separate
-`UPPER / CS` or `lower / CS` model.
+An individual quoted object can be named `"CUSTOMER"` or `"customer"` and still be case-sensitive. That is normally part of the broader `preserve / CS` quoted-identifier model, not a separate `UPPER / CS` or `lower / CS` model.
 
 ## Database Behavior Matrix
 
-The matrix below summarizes common behavior for schemas, databases, tables, and similar object
-names. It is a behavioral model, not a guarantee of what every JDBC driver will report. Columns,
-aliases, session settings, compatibility modes, and vendor-specific catalogs can add more rules.
+The matrix below summarizes common behavior for schemas, databases, tables, and similar object names. It is a behavioral model, not a guarantee of what every JDBC driver will report. Columns, aliases, session settings, compatibility modes, and vendor-specific catalogs can add more rules.
 
 | Database System | Regular Or Unquoted Identifiers | Delimited Or Quoted Identifiers | Configuration And Design Implications |
 |---|---|---|---|
@@ -81,9 +66,7 @@ aliases, session settings, compatibility modes, and vendor-specific catalogs can
 
 ## JDBC Metadata Mapping
 
-JDBC exposes identifier-case behavior through `java.sql.DatabaseMetaData`. The method names are easy
-to misread: `storesMixedCaseIdentifiers()` means "preserve mixed case but do not distinguish it,"
-while `supportsMixedCaseIdentifiers()` means "preserve and distinguish mixed case."
+JDBC exposes identifier-case behavior through `java.sql.DatabaseMetaData`. The method names are easy to misread: `storesMixedCaseIdentifiers()` means "preserve mixed case but do not distinguish it," while `supportsMixedCaseIdentifiers()` means "preserve and distinguish mixed case."
 
 For regular identifiers:
 
@@ -154,15 +137,11 @@ System.out.println("Quoted:  " + identifierMode(metaData, true));
 System.out.println("Quote:   " + metaData.getIdentifierQuoteString());
 ```
 
-`getIdentifierQuoteString()` reports the delimiter used by the driver, or a space when identifier
-quoting is unsupported. JDBC-compliant drivers commonly report `"`; MySQL drivers commonly use the
-vendor-appropriate delimiter. [web:126]
+`getIdentifierQuoteString()` reports the delimiter used by the driver, or a space when identifier quoting is unsupported. JDBC-compliant drivers commonly report `"`; MySQL drivers commonly use the vendor-appropriate delimiter. [web:126]
 
 ## Metadata Search Patterns And Catalog Spelling
 
-JDBC metadata methods do not parse SQL. A `getTables()` or `getColumns()` argument is a metadata
-search pattern, not an SQL identifier whose case will necessarily be normalized by the database
-parser.
+JDBC metadata methods do not parse SQL. A `getTables()` or `getColumns()` argument is a metadata search pattern, not an SQL identifier whose case will necessarily be normalized by the database parser.
 
 For example:
 
@@ -192,8 +171,7 @@ Portable metadata traversal generally follows these rules:
 
 ## Configuration Not Always Exposed By JDBC
 
-The metadata flags are a portable baseline. Configuration-dependent systems may need vendor-specific
-queries or connection settings to understand the effective behavior.
+The metadata flags are a portable baseline. Configuration-dependent systems may need vendor-specific queries or connection settings to understand the effective behavior.
 
 | System | Configuration Check | Why It Matters |
 |---|---|---|
@@ -230,8 +208,7 @@ Case sensitivity for object names is separate from case sensitivity in predicate
 WHERE name = 'Alice'
 ```
 
-SQL Server collations can affect both areas, but identifier behavior and column-data comparison
-behavior should be reasoned about separately.
+SQL Server collations can affect both areas, but identifier behavior and column-data comparison behavior should be reasoned about separately.
 
 ## SchemaCrawler Position
 
@@ -241,144 +218,98 @@ SchemaCrawler's position is intentionally conservative:
 2. **Preserve the names that the database and JDBC metadata return.**
 3. **Use exact keys for internal catalog identity and retrieval.**
 4. **Provide search and filter APIs that can be case-insensitive when callers ask for that behavior.**
-5. **Make full-name regular-expression matching quote-tolerant so displayed quoting does not block
-   user intent.**
+5. **Make full-name regular-expression matching quote-tolerant so displayed quoting does not block user intent.**
 
-SchemaCrawler should not infer a global "database case" and apply it to every name. Database object
-names are data returned by the database. If a database returns `BOOKS`, `books`, or `"Books.Table"`,
-SchemaCrawler keeps that spelling for display, output, filtering, and follow-up metadata traversal.
+SchemaCrawler should not infer a global "database case" and apply it to every name. Database object names are data returned by the database. If a database returns `BOOKS`, `books`, or `"Books.Table"`, SchemaCrawler keeps that spelling for display, output, filtering, and follow-up metadata traversal.
 
 ## SchemaCrawler Code Reference
 
 These are the main code locations for current case and lookup behavior.
 
-`SchemaCrawler-Core\schemacrawler-api\src\main\java\schemacrawler\schema\IdentifiersBuilder.java`
-captures identifier-quoting metadata. `fromConnection(Connection)` reads
-`DatabaseMetaData.getIdentifierQuoteString()` and derives `quoteMixedCaseIdentifiers` from
-`!metaData.supportsMixedCaseIdentifiers()`.
+`SchemaCrawler-Core\schemacrawler-api\src\main\java\schemacrawler\schema\IdentifiersBuilder.java` captures identifier-quoting metadata. `fromConnection(Connection)` reads `DatabaseMetaData.getIdentifierQuoteString()` and derives `quoteMixedCaseIdentifiers` from `!metaData.supportsMixedCaseIdentifiers()`.
 
-`SchemaCrawler-Core\schemacrawler-api\src\main\java\schemacrawler\schemacrawler\SchemaRetrievalOptionsBuilder.java`
-handles schema-retrieval quote-string defaulting. `lookupIdentifierQuoteString(DatabaseMetaData)`
-defaults to SQL-standard `"`, allows an explicit override, and otherwise asks `DatabaseMetaData`.
+`SchemaCrawler-Core\schemacrawler-api\src\main\java\schemacrawler\schemacrawler\SchemaRetrievalOptionsBuilder.java` handles schema-retrieval quote-string defaulting. `lookupIdentifierQuoteString(DatabaseMetaData)` defaults to SQL-standard `"`, allows an explicit override, and otherwise asks `DatabaseMetaData`.
 
-`SchemaCrawler-Core\schemacrawler-api\src\main\java\schemacrawler\schema\NamedObjectKey.java`
-is the internal identity key. It stores key parts exactly as supplied, compares with
-`Arrays.equals(...)`, and joins non-blank parts with `.` without splitting embedded delimiters.
+`SchemaCrawler-Core\schemacrawler-api\src\main\java\schemacrawler\schema\NamedObjectKey.java` is the internal identity key. It stores key parts exactly as supplied, compares with `Arrays.equals(...)`, and joins non-blank parts with `.` without splitting embedded delimiters.
 
-`SchemaCrawler-Core\schemacrawler-api\src\main\java\schemacrawler\crawl\NamedObjectList.java`
-is the internal catalog lookup container. It stores objects in a
-`ConcurrentHashMap<NamedObjectKey, N>` and looks them up by the exact `NamedObjectKey`.
+`SchemaCrawler-Core\schemacrawler-api\src\main\java\schemacrawler\crawl\NamedObjectList.java` is the internal catalog lookup container. It stores objects in a `ConcurrentHashMap<NamedObjectKey, N>` and looks them up by the exact `NamedObjectKey`.
 
-`SchemaCrawler-Core\schemacrawler-api\src\main\java\schemacrawler\filter\CatalogSearcher.java`
-is the catalog search wrapper. It provides `findTables`, `findRoutines`, `findColumns`, and other
-search methods that apply caller-provided `NamedObjectFilter`s without changing the catalog.
+`SchemaCrawler-Core\schemacrawler-api\src\main\java\schemacrawler\filter\CatalogSearcher.java` is the catalog search wrapper. It provides `findTables`, `findRoutines`, `findColumns`, and other search methods that apply caller-provided `NamedObjectFilter`s without changing the catalog.
 
-`SchemaCrawler-Core\schemacrawler-api\src\main\java\schemacrawler\filter\NamedObjectFilter.java`
-defines the filter contract: a typed `Predicate<N extends NamedObject>` for named-object selection.
+`SchemaCrawler-Core\schemacrawler-api\src\main\java\schemacrawler\filter\NamedObjectFilter.java` defines the filter contract: a typed `Predicate<N extends NamedObject>` for named-object selection.
 
-`SchemaCrawler-Core\schemacrawler-api\src\main\java\schemacrawler\filter\NamedObjectFilters.java`
-contains the public filter factories. `nameRegex(String)` and `fullNameRegex(String)` compile
-patterns with `Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE`. `fullName(InclusionRule)` preserves
-the caller's rule and flags, and routes regex rules to the quote-tolerant full-name implementation.
+`SchemaCrawler-Core\schemacrawler-api\src\main\java\schemacrawler\filter\NamedObjectFilters.java` contains the public filter factories. `nameRegex(String)` and `fullNameRegex(String)` compile patterns with `Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE`. `fullName(InclusionRule)` preserves the caller's rule and flags, and routes regex rules to the quote-tolerant full-name implementation.
 
-`SchemaCrawler-Core\schemacrawler-api\src\main\java\schemacrawler\filter\InclusionRuleFilter.java`
-wraps an `InclusionRule` as a `NamedObjectFilter` over displayed full names.
+`SchemaCrawler-Core\schemacrawler-api\src\main\java\schemacrawler\filter\InclusionRuleFilter.java` wraps an `InclusionRule` as a `NamedObjectFilter` over displayed full names.
 
-`SchemaCrawler-Core\schemacrawler-api\src\main\java\schemacrawler\filter\QuoteTolerantFullNameInclusionRuleFilter.java`
-implements quote-tolerant regex full-name matching. It tests regex inclusion and exclusion against
-both displayed full name and unquoted joined-key full name.
+`SchemaCrawler-Core\schemacrawler-api\src\main\java\schemacrawler\filter\QuoteTolerantFullNameInclusionRuleFilter.java` implements quote-tolerant regex full-name matching. It tests regex inclusion and exclusion against both displayed full name and unquoted joined-key full name.
 
 ## Preserve Database-Provided Case
 
-SchemaCrawler should preserve database object names as returned by JDBC metadata and vendor-specific
-retrievers. It should not use the JDBC metadata case flags as an instruction to normalize every
-returned name.
+SchemaCrawler should preserve database object names as returned by JDBC metadata and vendor-specific retrievers. It should not use the JDBC metadata case flags as an instruction to normalize every returned name.
 
 This is the safest behavior because:
 
 - JDBC search patterns are not SQL identifiers.
 - The spelling returned in metadata result sets is the best value to reuse in later metadata calls.
-- Databases can have different rules for unquoted identifiers, quoted identifiers, table names,
-  column names, aliases, schemas, and catalog names.
-- Vendor configuration can change behavior at the database, filesystem, session, or compatibility
-  level.
+- Databases can have different rules for unquoted identifiers, quoted identifiers, table names, column names, aliases, schemas, and catalog names.
+- Vendor configuration can change behavior at the database, filesystem, session, or compatibility level.
 
 ## Use Exact Keys For Internal Identity
 
 SchemaCrawler's internal identity mechanism is exact-key based.
 
-`NamedObjectKey` stores key parts as supplied, compares them with `Arrays.equals(...)`, and hashes
-them with `Arrays.hashCode(...)`. It does not case-fold key parts. `NamedObjectList` stores and
-retrieves objects by `NamedObjectKey` in maps.
+`NamedObjectKey` stores key parts as supplied, compares them with `Arrays.equals(...)`, and hashes them with `Arrays.hashCode(...)`. It does not case-fold key parts. `NamedObjectList` stores and retrieves objects by `NamedObjectKey` in maps.
 
-That means internal identity and lookup remain deterministic and do not depend on a guessed database
-case policy. If two objects differ only by case and the database reports them as distinct, exact keys
-allow SchemaCrawler to represent that distinction.
+That means internal identity and lookup remain deterministic and do not depend on a guessed database case policy. If two objects differ only by case and the database reports them as distinct, exact keys allow SchemaCrawler to represent that distinction.
 
 ## Use Identifier Metadata For Quoting, Not Global Renaming
 
-SchemaCrawler reads identifier metadata so it can quote or render identifiers appropriately, not so
-it can rewrite catalog object names.
+SchemaCrawler reads identifier metadata so it can quote or render identifiers appropriately, not so it can rewrite catalog object names.
 
 Important code paths:
 
 - `IdentifiersBuilder.fromConnection(Connection)` reads:
-  - `DatabaseMetaData.getIdentifierQuoteString()`
-  - `DatabaseMetaData.supportsMixedCaseIdentifiers()`
+- `DatabaseMetaData.getIdentifierQuoteString()`
+- `DatabaseMetaData.supportsMixedCaseIdentifiers()`
 - `SchemaRetrievalOptionsBuilder.lookupIdentifierQuoteString(DatabaseMetaData)` uses:
-  - explicit SchemaCrawler options when provided
-  - JDBC metadata when available
-  - SQL-standard `"` as a default
+- explicit SchemaCrawler options when provided
+- JDBC metadata when available
+- SQL-standard `"` as a default
 
-This keeps the metadata useful for display and SQL generation while preserving the database-provided
-catalog spelling.
+This keeps the metadata useful for display and SQL generation while preserving the database-provided catalog spelling.
 
 ## Allow Case-Insensitive Searches
 
-SchemaCrawler supports case-insensitive object searches at the filter layer instead of changing the
-stored catalog names.
+SchemaCrawler supports case-insensitive object searches at the filter layer instead of changing the stored catalog names.
 
-`NamedObjectFilters.nameRegex(String)` and `NamedObjectFilters.fullNameRegex(String)` compile
-regular expressions with:
+`NamedObjectFilters.nameRegex(String)` and `NamedObjectFilters.fullNameRegex(String)` compile regular expressions with:
 
 ```java
 Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE
 ```
 
-This provides case-insensitive search behavior for callers who want it, while leaving object names
-and internal keys unchanged.
+This provides case-insensitive search behavior for callers who want it, while leaving object names and internal keys unchanged.
 
-`CatalogSearcher` is the search entry point for catalog contents. It wraps a `Catalog` and offers
-typed methods such as `findTables(...)`, `findRoutines(...)`, and `findColumns(...)`, each accepting
-a `NamedObjectFilter<? super T>`. The searcher filters the current visible catalog; it does not
-change the catalog.
+`CatalogSearcher` is the search entry point for catalog contents. It wraps a `Catalog` and offers typed methods such as `findTables(...)`, `findRoutines(...)`, and `findColumns(...)`, each accepting a `NamedObjectFilter<? super T>`. The searcher filters the current visible catalog; it does not change the catalog.
 
 ## Allow Quote-Tolerant Full-Name Searches
 
-SchemaCrawler also supports quote-tolerant full-name regex matching for callers who are searching by
-database object name.
+SchemaCrawler also supports quote-tolerant full-name regex matching for callers who are searching by database object name.
 
 The important distinction is:
 
-- `NamedObject.getFullName()` is the displayed full name. It may include quotes or other display
-  formatting when needed.
-- `NamedObject.key().join()` is the joined internal key form. It preserves embedded delimiter
-  characters within individual key parts and joins the captured parts with `.`.
+- `NamedObject.getFullName()` is the displayed full name. It may include quotes or other display formatting when needed.
+- `NamedObject.key().join()` is the joined internal key form. It preserves embedded delimiter characters within individual key parts and joins the captured parts with `.`.
 
-`QuoteTolerantFullNameInclusionRuleFilter` tests regular-expression inclusion and exclusion against
-both forms:
+`QuoteTolerantFullNameInclusionRuleFilter` tests regular-expression inclusion and exclusion against both forms:
 
 1. the displayed full name, and
 2. the unquoted joined-key full name.
 
-This allows a user-supplied unquoted regex to match a displayed full name that is quoted only because
-the identifier needs quoting for display. It also prevents exclusion bypasses: exclusions are tested
-against both forms before an object is accepted.
+This allows a user-supplied unquoted regex to match a displayed full name that is quoted only because the identifier needs quoting for display. It also prevents exclusion bypasses: exclusions are tested against both forms before an object is accepted.
 
-`NamedObjectFilters.fullName(InclusionRule)` is the public factory that selects this behavior for
-regular-expression inclusion rules. Callers that need to preserve their own `Pattern` flags should
-construct a `RegularExpressionInclusionRule` and pass it to `NamedObjectFilters.fullName(...)`
-instead of using `fullNameRegex(...)`, which intentionally compiles case-insensitive patterns.
+`NamedObjectFilters.fullName(InclusionRule)` is the public factory that selects this behavior for regular-expression inclusion rules. Callers that need to preserve their own `Pattern` flags should construct a `RegularExpressionInclusionRule` and pass it to `NamedObjectFilters.fullName(...)` instead of using `fullNameRegex(...)`, which intentionally compiles case-insensitive patterns.
 
 ## Preserve Caller Intent In Filter APIs
 
@@ -396,24 +327,13 @@ This keeps the database-facing representation stable while giving callers explic
 
 ## Preserve Case Sensitivity In General Regular-Expression Rules
 
-`RegularExpressionRule`, `RegularExpressionInclusionRule`, and
-`RegularExpressionExclusionRule` are general-purpose inclusion rules. They MUST preserve the
-case-sensitivity and other flags supplied by the caller rather than adding
-`Pattern.CASE_INSENSITIVE` implicitly.
+`RegularExpressionRule`, `RegularExpressionInclusionRule`, and `RegularExpressionExclusionRule` are general-purpose inclusion rules. They MUST preserve the case-sensitivity and other flags supplied by the caller rather than adding `Pattern.CASE_INSENSITIVE` implicitly.
 
-These rules are used not only for catalog searches but also as primary inclusion and exclusion
-rules while SchemaCrawler retrieves schemas, tables, routines, columns, and parameters. Making
-them case-insensitive by default would silently broaden crawling filters and prevent callers from
-selecting quoted, case-sensitive database objects precisely.
+These rules are used not only for catalog searches but also as primary inclusion and exclusion rules while SchemaCrawler retrieves schemas, tables, routines, columns, and parameters. Making them case-insensitive by default would silently broaden crawling filters and prevent callers from selecting quoted, case-sensitive database objects precisely.
 
-Callers that need case-insensitive object-name search should use
-`NamedObjectFilters.nameRegex(String)` or `NamedObjectFilters.fullNameRegex(String)`. Callers
-that construct a `RegularExpressionInclusionRule` or `RegularExpressionExclusionRule` retain
-control by supplying a `Pattern` with the desired flags, or an inline regular-expression flag such
-as `(?i)`.
+Callers that need case-insensitive object-name search should use `NamedObjectFilters.nameRegex(String)` or `NamedObjectFilters.fullNameRegex(String)`. Callers that construct a `RegularExpressionInclusionRule` or `RegularExpressionExclusionRule` retain control by supplying a `Pattern` with the desired flags, or an inline regular-expression flag such as `(?i)`.
 
-`Pattern.DOTALL` is independent of case sensitivity. It is appropriate for patterns that search
-multiline remarks or definition text, but it does not imply case-insensitive matching.
+`Pattern.DOTALL` is independent of case sensitivity. It is appropriate for patterns that search multiline remarks or definition text, but it does not imply case-insensitive matching.
 
 ## Future Reference Checklist
 
@@ -424,10 +344,7 @@ Use this checklist when changing code that deals with database object names:
 - Use exact `NamedObjectKey` lookup for internal identity.
 - Use `CatalogSearcher` and `NamedObjectFilter` for search behavior.
 - Use `NamedObjectFilters.nameRegex(...)` for case-insensitive simple-name searches.
-- Use `NamedObjectFilters.fullNameRegex(...)` for case-insensitive, quote-tolerant full-name
-  searches.
-- Use `NamedObjectFilters.fullName(new RegularExpressionInclusionRule(pattern))` when caller-provided
-  regex flags must be preserved.
-- Keep JDBC metadata flags as diagnostics and quoting guidance, not as a mandate to rewrite catalog
-  names.
+- Use `NamedObjectFilters.fullNameRegex(...)` for case-insensitive, quote-tolerant full-name searches.
+- Use `NamedObjectFilters.fullName(new RegularExpressionInclusionRule(pattern))` when caller-provided regex flags must be preserved.
+- Keep JDBC metadata flags as diagnostics and quoting guidance, not as a mandate to rewrite catalog names.
 - Consider vendor configuration separately when diagnosing observed database behavior.
