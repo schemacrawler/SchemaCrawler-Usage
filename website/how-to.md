@@ -234,8 +234,7 @@ SchemaCrawler integrates with [Graphviz](https://www.graphviz.org/) to produce g
 
 ### <a name="graphviz_opts">How to provide additional Graphviz command-line options</a>
 
-SchemaCrawler integrates with [Graphviz](https://www.graphviz.org/) to produce graph images. See the previous question for details.
-You can provide additional Graphviz command-line options using the `SC_GRAPHVIZ_OPTS` environmental variable, or pass in the additional arguments using the `SC_GRAPHVIZ_OPTS` Java system property.
+SchemaCrawler integrates with [Graphviz](https://www.graphviz.org/) to produce graph images. See the previous question for details. You can provide additional Graphviz command-line options using the `SC_GRAPHVIZ_OPTS` Java system property.
 
 ---------
 
@@ -267,7 +266,7 @@ In order to use SchemaCrawler in your Apache Maven projects, add a dependency to
   <dependency>
     <groupId>us.fatehi</groupId>
     <artifactId>schemacrawler</artifactId>
-    <version>18.0.1</version>
+    <version>18.0.2</version>
   </dependency>
 </dependencies>
 ```
@@ -343,4 +342,3 @@ PostgreSQL materialized views are a table type called "MATERIALIZED VIEW". Use a
 `MATERIALIZED` and `VIEW`.
 
 ---------
-
