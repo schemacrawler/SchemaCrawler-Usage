@@ -2,6 +2,16 @@
 
 SchemaCrawler release notes.
 
+
+<a name="v18.0.2"></a>
+## Release v18.0.2 - 2026-11-09
+
+- Add Git commit information to jar manifests
+- Standardize external settings on `SCHCRWLR_*`, retaining legacy `SC_*` names as deprecated compatibility aliases
+- Tighten Java deserialization with shared deny-first class checks
+- Use database fingerprints instead of raw URLs and credentials in failure messages
+
+
 <a name="v18.0.1"></a>
 ## Release v18.0.1 - 2026-10-29
 

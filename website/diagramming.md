@@ -126,11 +126,7 @@ option.
 
 ### Graphviz Command-line Options
 
-You can provide additional Graphviz command-line options in one of three ways:
-
-* using the `schemacrawler.graph.graphviz_opts` property in the SchemaCrawler configuration file,
-* by passing in the additional arguments using the `SC_GRAPHVIZ_OPTS` Java system property,
-* or by setting the `SC_GRAPHVIZ_OPTS` environmental variable.
+You can provide additional Graphviz command-line options in one of two ways: using the `schemacrawler.graph.graphviz_opts` property in the SchemaCrawler configuration file, or by passing the options using the `SC_GRAPHVIZ_OPTS` Java system property.
 
 SchemaCrawler does not set the dpi, or resolution of generated graphs. A useful Graphviz command-line
 option to set is `-Gdpi=300`. In the SchemaCrawler configuration file,
@@ -280,4 +276,3 @@ Photograph courtesy of [Adrien Sales](https://www.linkedin.com/in/adrien-sales).
 <a href="images/SchemaCrawler_Noumea.jpg" data-lightbox="sc-in-use" data-title="Schemacrawler database diagrams in use">
 <img class="img-fluid img-thumbnail" style="width: 50%" src="images/SchemaCrawler_Noumea.jpg" alt="Schemacrawler database diagrams in use" />
 </a>
-

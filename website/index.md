@@ -33,6 +33,10 @@ Java SE 17 or better.
 
 ## SchemaCrawler Command-line
 
+See [Configuration](config.md) for configuration options, external runtime
+settings, supported environment variables and system properties, and deprecated
+aliases.
+
 SchemaCrawler comes with a set of command-line tools that allow database
 metadata to be output as [plain text,](snapshot-examples/snapshot.txt)
 [HTML5,](snapshot-examples/snapshot.md)
