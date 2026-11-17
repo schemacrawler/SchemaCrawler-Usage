@@ -75,3 +75,36 @@ The SchemaCrawler Docker image can be extended to include any additional local j
 1. Create a Dockerfile using [this template](https://gist.github.com/sualeh/761e808f2803bba8e6f003e3276cf6e3).
 2. Include any additional jar files in the project directory.
 3. In the directory containing your Docker file, run [the Docker build command](https://docs.docker.com/engine/reference/commandline/build/).
+
+
+## How to Verify Docker Image Provenance
+
+SchemaCrawler publishes signed provenance attestations for released Docker images. These attestations verify the identity of the image and the GitHub Actions workflow that built and published it.
+
+### Publisher Mappings
+
+SchemaCrawler publishes Docker images from four repositories to Docker Hub:
+
+| Image | Publisher Repository | Docker Hub Repository |
+|-------|----------------------|----------------------|
+| SchemaCrawler | [schemacrawler/SchemaCrawler](https://github.com/schemacrawler/SchemaCrawler/attestations) | [schemacrawler/schemacrawler](https://hub.docker.com/r/schemacrawler/schemacrawler) |
+| SchemaCrawler AI | [schemacrawler/SchemaCrawler-AI](https://github.com/schemacrawler/SchemaCrawler-AI/attestations) | [schemacrawler/schemacrawler-ai](https://hub.docker.com/r/schemacrawler/schemacrawler-ai) |
+| SchemaCrawler Action | [schemacrawler/SchemaCrawler-Action](https://github.com/schemacrawler/SchemaCrawler-Action/attestations) | [schemacrawler/schemacrawler-action](https://hub.docker.com/r/schemacrawler/schemacrawler-action) |
+| SchemaCrawler Web Application | [schemacrawler/SchemaCrawler-Web-Application](https://github.com/schemacrawler/SchemaCrawler-Web-Application/attestations) | [schemacrawler/schemacrawler-webapp](https://hub.docker.com/r/schemacrawler/schemacrawler-webapp) |
+
+
+### Verify Provenance
+
+To verify an image's provenance using GitHub attestations, select the immutable image digest from the release notes, GitHub attestations page, or from Docker Hub, and then use the GitHub CLI.
+
+For example, replace `<digest>` and Docker image name below with the SHA-256 digest's hexadecimal value, and run:
+
+```sh
+gh attestation verify  \
+  'oci://docker.io/schemacrawler/schemacrawler-webapp@sha256:<<SHA>>' \
+  --owner schemacrawler \
+  --bundle-from-oci  
+```
+
+Then check the attested details.
+
