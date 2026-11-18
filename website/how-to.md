@@ -34,7 +34,6 @@
 2. [How to create your own output format](#velocity)
 3. [How to create a database diagram of your schema](#diagrams)
 4. [How to provide additional Graphviz command-line options](#graphviz_opts)
-5. [How to use pure-Java Graphviz](#graphviz-java)
 
 ## How to Use SchemaCrawler in Projects
 
@@ -59,15 +58,8 @@
 ## <a name="command-line">How to Use the SchemaCrawler Command-line</a>
 
 Explore the SchemaCrawler command-line with a [live online tutorial](https://killercoda.com/schemacrawler). 
-The tutorial works from within any browser with no software or plugins needed.
 
-Use `schemacrawler.Main` to launch SchemaCrawler from the command-line. This launch offers a
-number of connection options, including by JDBC driver and URL, and by a connection defined in
-a properties configuration file. There are options to load configuration from properties files.
-JDBC drivers and other external libraries must be available on the classpath for this
-application to function.
-
-For help, use the `-h` command-line switch.
+For local use, run `schemacrawler --help` to see the available commands and connection options. Follow the [command-line example](examples/commandline.md) and see [downloads](downloads.md) for installation details.
 
 ---------
 
@@ -76,21 +68,17 @@ For help, use the `-h` command-line switch.
 ---------
 
 ### <a name="excluded-tables">How to see why certain tables or columns for excluded</a>
-Re-run SchemaCrawler with `--log-level=ALL` on the command-line.
+Re-run SchemaCrawler with `--log-level=ALL`. See the [filtering reference](schemacrawler-grep.md) and [Grep example](examples/grep.md).
 
 ---------
 
 ### <a name="include-significant-columns">How to include only significant columns - that is, columns that are part of a primary key or unique index, or columns that are foreign keys</a>
-Re-run SchemaCrawler with the `--info-level=standard --command=brief` command-line options.
+Re-run with `--info-level=standard --command=brief`; see the [output guidance](output.md) and [command-line example](examples/commandline.md).
 
 ---------
 
 ### <a name="excluded-tables-or-columns">How to include or exclude certain tables or columns</a>
-Change the configuration for the SchemaCrawler the table or column include and exclude patterns in the
-`schemacrawler.config.properties` file. The include or exclude specification is
-a [Java regular expression](https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html).
-The include pattern is evaluated first, and the exclusions are made from the included tables or columns list.
-Also see the [filtering and grep command-line options.](faq.md#commands)
+Set table or column include and exclude patterns in `schemacrawler.config.properties` using Java regular expressions; inclusion is applied before exclusion. See the [Grep reference](schemacrawler-grep.md) and [runnable example](examples/grep.md).
 
 ---------
 
@@ -118,10 +106,7 @@ Use the `--no-remarks` command-line option. Further, see the [details on the com
 ---------
 
 ### <a name="case-insensitive">How to do case-insensitive filtering</a>
-For any SchemaCrawler argument that uses regular expressions, you can use
-[mode modifiers](https://www.regular-expressions.info/refmodifiers.html)
-for case-insensitive matches. For example, to grep for column names, use a regular expression
-like `--grep-columns='(?i).*data'`
+Use a Java regular-expression mode modifier such as `(?i)` in a grep pattern, for example `--grep-columns='(?i).*data'`. See the [Grep reference](schemacrawler-grep.md) and [Grep example](examples/grep.md).
 
 ---------
 
@@ -216,28 +201,27 @@ Change the configuration for the SchemaCrawler `schemacrawler.format.no_schema_c
 
 ### <a name="javascript">How to script with your database</a>
 
-SchemaCrawler has built-in support to be used with JavaScript scripts. Write your JavaScript file, assuming that a "catalog" variable containing the database schema will be available. A "connection" variable will also be available, and you will be able to execute SQL against your database. Run SchemaCrawler with the command-line options - `--command script --script <your script file>` . See the example in the `examples\javascript` directory for more details.
+Run a script with `--command script --script-language javascript --script <file>`; it can access the schema catalog and live connection. See the [scripting reference](scripting.md) and [JavaScript example](examples/javascript.md).
 
 ---------
 
 ### <a name="velocity">How to create your own output format</a>
 
-SchemaCrawler integrates with [Apache Velocity](https://velocity.apache.org/) to allow for templated output. Put Velocity on your classpath, and create your template, and run SchemaCrawler with the command-line options `--command velocity --template <your Velocity template>`. See the Velocity example in the [SchemaCrawler examples](https://www.schemacrawler.com/downloads.html#running-examples-locally/) download.
+Use [Apache Velocity](https://velocity.apache.org/) templates with `--command template --templating-language velocity --template <template>`. See the [scripting reference](scripting.md) and [Velocity example](examples/velocity.md).
 
 ---------
 
 ### <a name="diagrams">How to create a database diagram of your schema</a>
 
-SchemaCrawler integrates with [Graphviz](https://www.graphviz.org/) to produce graph images. See the diagram example in the [SchemaCrawler examples](https://www.schemacrawler.com/downloads.html#running-examples-locally/) download. For more details, see the [diagram section](diagramming.md).
+Generate diagrams with [Graphviz](https://www.graphviz.org/). See the [diagramming guide](diagramming.md) and [runnable example](examples/diagram.md).
 
 ---------
 
 ### <a name="graphviz_opts">How to provide additional Graphviz command-line options</a>
 
-SchemaCrawler integrates with [Graphviz](https://www.graphviz.org/) to produce graph images. See the previous question for details. You can provide additional Graphviz command-line options using the `SC_GRAPHVIZ_OPTS` Java system property.
+Set `SC_GRAPHVIZ_OPTS` to pass additional Graphviz options. See the [diagramming guide](diagramming.md) and [diagram example](examples/diagram.md).
 
 ---------
-
 
 ## How to Use SchemaCrawler in Projects
 

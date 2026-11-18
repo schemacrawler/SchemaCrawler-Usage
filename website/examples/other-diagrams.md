@@ -8,7 +8,7 @@ Before running this example, complete the setup in [Getting Started](getting-sta
 
 > Replace with the connection options for your chosen database. See [Getting Started](getting-started-examples.md).
 
-**Run through all the examples on [diagrams page](diagramming.md).**
+**Run through all the examples on the [diagrams page](../diagramming.md).**
 
 ## Resource Files
 

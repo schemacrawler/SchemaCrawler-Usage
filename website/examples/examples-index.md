@@ -4,7 +4,11 @@ Before running any example, follow the steps in
 [Getting Started with SchemaCrawler Examples](getting-started-examples.md) to set up Docker,
 start a database, and verify your connection.
 
-## Examples
+Choose an example by task. The [How-to recipes](../how-to.md) provide step-by-step guidance, while the feature references explain each capability.
+
+## Explore and visualize
+
+See the [command-line recipe](../how-to.md#command-line), [diagramming guide](../diagramming.md), and [schema search reference](../schemacrawler-grep.md).
 
 | Example | Description |
 | --- | --- |
@@ -12,14 +16,35 @@ start a database, and verify your connection.
 | [Diagram](diagram.md) | Generate visual entity-relationship diagrams using Graphviz, in PNG, PDF, SVG, and other formats. |
 | [Other Diagrams](other-diagrams.md) | Produce Mermaid, DBML, and PlantUML entity-relationship diagrams using Python scripts. |
 | [Grep](grep.md) | Search a database schema for tables, columns, and routine parameters matching a regular expression. |
-| [Lint](lint.md) | Identify potential database design issues such as missing primary keys, missing indexes, and naming inconsistencies. |
 | [Dump](dump.md) | Export the full contents of a database in a diff-able HTML format for comparison across environments. |
+
+## Analyze and improve
+
+See the [lint configuration recipe](../how-to.md#configure_linter), [SchemaCrawler Lint reference](../lint.md), and [implicit associations reference](../implicit-associations.md).
+
+| Example | Description |
+| --- | --- |
+| [Lint](lint.md) | Identify potential database design issues such as missing primary keys, missing indexes, and naming inconsistencies. |
+| [Implicit Associations](implicit-associations.md) | Define logical foreign key relationships between tables that are not enforced at the database level. |
+
+## Document and export
+
+Compare [output formats](../output.md), [serialization](../serialize.md), and [offline snapshots](../offline.md).
+
+| Example | Description |
+| --- | --- |
 | [Serialize](serialize.md) | Export a full database schema to JSON or YAML for offline analysis or integration with other tools. |
 | [Offline Snapshot](offline.md) | Save a database schema snapshot and reconnect to it later without needing the original database. |
 | [Attributes](attributes.md) | Enrich your schema with remarks and custom metadata loaded from a YAML file. |
-| [Implicit Associations](implicit-associations.md) | Define logical foreign key relationships between tables that are not enforced at the database level. |
 | [User Defined Queries](user-defined-query.md) | Execute custom per-table SQL queries using SchemaCrawler template variables. |
 | [Database-Specific Queries](db-specific-query.md) | Run SQL specific to a particular database engine using named query commands. |
+
+## Customize and integrate
+
+Follow the [scripting and output recipes](../how-to.md#javascript) and consult the [scripting reference](../scripting.md).
+
+| Example | Description |
+| --- | --- |
 | [JavaScript Scripting](javascript.md) | Script against live database metadata using JavaScript, with access to the catalog and a live JDBC connection. |
 | [Python Scripting](python.md) | Script against live database metadata using Python, with access to the catalog and a live JDBC connection. |
 | [Apache Velocity Templating](velocity.md) | Generate custom text output from your database schema using Apache Velocity templates. |

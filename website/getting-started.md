@@ -15,21 +15,27 @@
 
 ## Getting Started
 
-### FAQs
+### Choose a path
 
-Before downloading SchemaCrawler, be sure to read the [FAQs](faq.md) and take a look at the [resources](resources.md).
+Before downloading SchemaCrawler, read the [FAQs](faq.md) and browse the [resources](resources.md).
 
-Watch the video on [How to explore a new database](https://dev.to/sualeh/how-do-you-explore-a-new-database-1pge) to understand the power of SchemaCrawler, and to give you some ideas of how to use it. Also read [Explore Your Database Schema with SchemaCrawler](https://dev.to/sualeh/explore-your-database-schema-with-schemacrawler-5341), [How to Get Database Metadata as Java POJOs](https://dev.to/sualeh/how-to-get-database-metadata-as-java-pojos-24li) and [Lint Your Database Schema With GitHub Actions Workflows](https://dev.to/sualeh/lint-your-database-schema-with-github-actions-workflows-57cg).
+#### Explore or visualize
 
-SchemaCrawler can [generate diagrams of your database schema](diagramming.md), and export them to other tools. Take a look at [How to Generate dbdiagram.io Diagrams for Your Database](https://dev.to/sualeh/how-to-generate-dbdiagram-io-diagrams-for-your-database-431l)
-and [How to Generate Mermaid Diagrams for Your Database](https://dev.to/sualeh/how-to-generate-mermaid-diagrams-for-your-database-33bn) to see how you can continue to evolve your database design. If you want continuous ingtegration, see how you can [Generate Database Diagrams With GitHub Actions Workflows](https://dev.to/sualeh/generate-database-diagrams-with-github-actions-workflows-4l96).
+Start with [schema search](schemacrawler-grep.md) or [database diagrams](diagramming.md). Read [How to explore a new database](https://dev.to/sualeh/how-do-you-explore-a-new-database-1pge), [Explore Your Database Schema with SchemaCrawler](https://dev.to/sualeh/explore-your-database-schema-with-schemacrawler-5341), or follow a [dbdiagram.io](https://dev.to/sualeh/how-to-generate-dbdiagram-io-diagrams-for-your-database-431l) or [Mermaid diagram](https://dev.to/sualeh/how-to-generate-mermaid-diagrams-for-your-database-33bn) tutorial.
 
-And finally, here are some other quick getting started articles:
+For a quick database-specific example, see how to visualize [MySQL](https://dev.to/sualeh/how-to-visualize-your-mysql-database-with-one-command-and-nothing-to-install-21cp), [PostgreSQL](https://dev.to/sualeh/how-to-visualize-your-postgresql-database-with-one-command-and-nothing-to-install-3e3j), or [SQLite](https://dev.to/sualeh/how-to-visualize-your-sqlite-database-with-one-command-and-nothing-to-install-1f4m) with one command.
 
-- [How to Visualize Your MySql Database with One Command (and Nothing to Install)](https://dev.to/sualeh/how-to-visualize-your-mysql-database-with-one-command-and-nothing-to-install-21cp)
-- [How to Visualize Your PostgreSQL Database with One Command (and Nothing to Install)](https://dev.to/sualeh/how-to-visualize-your-postgresql-database-with-one-command-and-nothing-to-install-3e3j)
-- [How to Visualize Your SQLite Database with One Command (and Nothing to Install)](https://dev.to/sualeh/how-to-visualize-your-sqlite-database-with-one-command-and-nothing-to-install-1f4m)
-- [Automatically Document Your Database in Markdown](https://dev.to/sualeh/automatically-document-your-database-in-markdown-elf)
+#### Document
+
+Compare [output formats](output.md) and [serialization](serialize.md), or generate navigable Markdown with [SchemaCrawler Scribe](scribe.md) and the [Scribe and Google OKF tutorial](https://dev.to/sualeh/schemacrawler-scribe-google-okf-ai-ready-database-docs-you-can-keep-in-git-2off). For a scripting-based walkthrough, see [Automatically Document Your Database in Markdown](https://dev.to/sualeh/automatically-document-your-database-in-markdown-elf).
+
+#### Analyze
+
+Use [graph metrics and table importance](importance.md) to prioritize tables, or [lint your schema](lint.md) for design issues. See [how to rank tables by importance](https://dev.to/sualeh/rank-your-database-tables-by-importance-with-schemacrawler-1gib) or [lint with GitHub Actions](https://dev.to/sualeh/lint-your-database-schema-with-github-actions-workflows-57cg).
+
+#### Use AI assistance
+
+Connect an AI client with the [SchemaCrawler AI MCP Server](mcpserver.md) and its [usage guide](https://github.com/schemacrawler/SchemaCrawler-AI-MCP-Server-Usage), or try the [ChatGPT schema exploration tutorial](https://dev.to/sualeh/use-chatgpt-to-explore-your-database-schema-4mfm).
 
 
 ### Explore the Command-Line
