@@ -26,6 +26,6 @@ Copy the output into the [dbdiagram.io online editor](https://dbdiagram.io/d) an
 
 You can build the DBML generation in a GitHub Action or GitLab build too. An example is in the [schemacrawler/SchemaCrawler-Action-Usage-Example](https://github.com/schemacrawler/SchemaCrawler-Action-Usage-Example) repository.
 
-If you want to customize the script, grab the source from  of ["dbml.py" from SchemaCrawler's GitHub repository]([https://github.com/schemacrawler/SchemaCrawler/blob/master/schemacrawler-scripting/src/test/resources/dbml.py](https://github.com/schemacrawler/SchemaCrawler/blob/main/schemacrawler-scripting/src/main/resources/scripts/dbml.py)).
+If you want to customize the script, grab the [dbml.py source from SchemaCrawler's GitHub repository](https://github.com/schemacrawler/SchemaCrawler/blob/main/schemacrawler-scripting/src/main/resources/scripts/dbml.py).
 
 To learn about how to use SchemaCrawler, download the [SchemaCrawler distribution zip file](https://github.com/schemacrawler/SchemaCrawler/releases/) and go through the examples.

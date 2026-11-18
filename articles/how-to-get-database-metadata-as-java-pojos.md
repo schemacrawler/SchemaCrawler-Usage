@@ -43,14 +43,14 @@ The JDBC API is powerful, but using it is daunting, especially for novice progra
 - You have the same convenience that you get with object-relational mapping tools, where you don't worry about resources or exception handling.
 - You could navigate using standard Java methods from one Column object to its containing Table object, or from one Table object to another via a ForeignKey.
 
-[SchemaCrawler](https://www.schemacrawler.com/) is just such an API. A free and open-source API available under the LGPL license, SchemaCrawler is written in Java, making it operating system agnostic. Since it leverages JDBC, it is also database independent. It deliberately doesn't have any RDBMS-specific code. That is the reason you won't find any triggers in it; there is no way to get trigger metadata using JDBC.
+[SchemaCrawler](https://www.schemacrawler.com/) is just such an API. A free and open-source API available under the LGPL license, SchemaCrawler is written in Java, making it operating system agnostic. Since it leverages JDBC, it is also database independent. JDBC does not provide a portable standard method for retrieving trigger metadata, but SchemaCrawler can retrieve triggers through database-specific queries. Trigger availability and detail depend on the database connector and its configured queries.
 
 # SchemaCrawler in Action
 
 Take a look at some sample code that demonstrates just how easy it is to use SchemaCrawler. This code assumes that you have a `javax.sql.DataSource` that is capable of handing out database connections on demand. Getting the database schema is a matter of one single call:
 
 ```java
-final SchemaCrawlerOptions options = SchemaCrawlerOptionsBuilder.builder().toOptions();
+final SchemaCrawlerOptions options = SchemaCrawlerOptionsBuilder.newSchemaCrawlerOptions();
 final Catalog catalog = SchemaCrawlerUtility.getCatalog(getConnection(), options);
 ```
 

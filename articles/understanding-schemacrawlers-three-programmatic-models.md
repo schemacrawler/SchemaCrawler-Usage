@@ -25,11 +25,12 @@ It gives you schemas, tables, views, columns, indexes, primary keys, foreign key
 ```java
 import schemacrawler.schema.Catalog;
 import schemacrawler.schemacrawler.SchemaCrawlerOptions;
+import schemacrawler.schemacrawler.SchemaCrawlerOptionsBuilder;
 import schemacrawler.tools.utility.SchemaCrawlerUtility;
 import us.fatehi.utility.datasource.DatabaseConnectionSource;
 
 DatabaseConnectionSource connectionSource = /* configure JDBC connection */;
-SchemaCrawlerOptions options = SchemaCrawlerOptions.builder().toOptions();
+SchemaCrawlerOptions options = SchemaCrawlerOptionsBuilder.newSchemaCrawlerOptions();
 
 Catalog catalog = SchemaCrawlerUtility.getCatalog(connectionSource, options);
 

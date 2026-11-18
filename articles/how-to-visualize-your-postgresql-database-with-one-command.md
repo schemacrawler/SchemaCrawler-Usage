@@ -11,7 +11,7 @@ docker run \
 schemacrawler/schemacrawler \
 /opt/schemacrawler/schemacrawler.sh \
 --server postgresql \
---host castor.db.elephantsql.com \
+--host your-postgresql-host \
 --user yourusername \
 --password yourpassword \
 --database yourdatabase \
@@ -20,7 +20,7 @@ schemacrawler/schemacrawler \
 --output-file output.png
 ```
 
-The command assumes that you have created a sample database on the excellent [ElephantSQL](https://www.elephantsql.com/) service, including some tables and foreign keys. You will need to obtain the username, password and database name of your ElephantSQL instance. A file called "output.png" will be generated with the database schema, including foreign key relationships. 
+The command connects to an existing PostgreSQL database. Replace `your-postgresql-host`, `yourusername`, `yourpassword`, and `yourdatabase` with your connection details. A file called "output.png" will be generated with the database schema, including foreign key relationships.
 
 If you are using PowerShell on Windows, replace the trailing backslash on each line with a back-tick, and map the current directory differently. Run this command:
 
@@ -31,7 +31,7 @@ docker run `
 schemacrawler/schemacrawler `
 /opt/schemacrawler/schemacrawler.sh `
 --server postgresql `
---host castor.db.elephantsql.com `
+--host your-postgresql-host `
 --user yourusername `
 --password yourpassword `
 --database yourdatabase `

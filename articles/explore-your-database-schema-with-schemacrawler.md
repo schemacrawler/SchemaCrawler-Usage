@@ -18,7 +18,7 @@ schemacrawler --server=sqlserver --host=**** --database=AdventureWorks --schemas
 Then, to plot a database diagram of tables that have a column called `VendorID`, with related tables (use `--parents=1 --children=1`)
 
 ```sh
-schemacrawler --server=sqlserver --host=**** --database=AdventureWorks --schemas=AdventureWorks\..* --user=**** --password=**** --info-level=standard --table-types=TABLE --grep-columns=.*\.VendorID --command=schema --parents=1 --children=1 --only-matching --output-format=pdf
+schemacrawler --server=sqlserver --host=**** --database=AdventureWorks --schemas=AdventureWorks\..* --user=**** --password=**** --info-level=standard --table-types=TABLE --grep-columns=.*\.VendorID --command=schema --parents=1 --children=1 --output-format=pdf
 ```
 
 (You can use [SchemaCrawler live tutorials](https://killercoda.com/schemacrawler) to see this in action.)

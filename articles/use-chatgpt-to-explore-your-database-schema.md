@@ -1,5 +1,7 @@
 # Use ChatGPT to Explore Your Database Schema
 
+> **Deprecated:** The `aichat` command was removed from SchemaCrawler. The instructions below are historical and are not supported by current releases.
+
 SchemaCrawler is a relational database exploration tool. It obtains database schema metadata such as tables, stored procedures, foreign keys, triggers and so on, and makes them available for search. The traditional way to use SchemaCrawler has been the command-line or an interactive shell. 
 
 ChatGPT offers almost magical help with coding questions. You could use it to get help with SQL questions, but then you have to adapt that SQL to match your database tables and schemas.
