@@ -11,6 +11,8 @@ serves for database documentation, and is designed to be
 [diff-ed](https://en.wikipedia.org/wiki/Diff) against other database
 schemas.
 
+Use text or HTML output for readable, diffable schema snapshots. Use JSON or YAML when another tool needs structured metadata; these formats are version-specific and are not intended for diffs. For navigable Markdown documentation designed for people and AI tools, use [SchemaCrawler Scribe](scribe.md).
+
 SchemaCrawler is unique among database documentation tools in that you
 do not need to know the table names or column names that you are
 interested in. All you need is a search expression, in the form of a
