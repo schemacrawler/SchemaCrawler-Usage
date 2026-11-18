@@ -35,7 +35,7 @@ Use [graph metrics and table importance](importance.md) to prioritize tables, or
 
 **Use AI assistance**
 
-Connect an AI client with the [SchemaCrawler AI MCP Server](mcpserver.md) and its [usage guide](https://github.com/schemacrawler/SchemaCrawler-AI-MCP-Server-Usage),.
+Connect an AI client with the [SchemaCrawler AI MCP Server](mcpserver.md) and its [usage guide](https://github.com/schemacrawler/SchemaCrawler-AI-MCP-Server-Usage).
 
 
 ### Explore the Command-Line
