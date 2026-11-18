@@ -20,10 +20,6 @@ Java SE 17 or better.
   Use the <a href="https://github.com/schemacrawler/SchemaCrawler-AI-MCP-Server-Usage" target="_blank" rel="noopener noreferrer">SchemaCrawler AI MCP Server</a> to get deep insights into your database.
 </div>
 
-## Choose a path
-
-See the [goal-based paths](getting-started.md#choose-a-path) on the Getting Started page.
-
 [![Codacy Grade](https://app.codacy.com/project/badge/Grade/84c0a068ce9349f2bcaa07b5977bd932)](https://app.codacy.com/gh/schemacrawler/SchemaCrawler/dashboard)
 [![Codacy Coverage](https://img.shields.io/codacy/coverage/84c0a068ce9349f2bcaa07b5977bd932)](https://app.codacy.com/gh/schemacrawler/SchemaCrawler/dashboard)
 
@@ -34,6 +30,10 @@ See the [goal-based paths](getting-started.md#choose-a-path) on the Getting Star
 [![Scoop](https://img.shields.io/scoop/v/schemacrawler?color=0F80C1)](https://github.com/ScoopInstaller/Main/blob/master/bucket/schemacrawler.json)
 [![Chocolatey](https://img.shields.io/chocolatey/v/schemacrawler?color=0F80C1)]( https://community.chocolatey.org/packages/schemacrawler)
 
+
+## Choose a path
+
+See the [goal-based paths](getting-started.md#choose-a-path) on the Getting Started page.
 
 ## SchemaCrawler Command-line
 

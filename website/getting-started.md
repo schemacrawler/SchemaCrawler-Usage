@@ -19,23 +19,23 @@
 
 Before downloading SchemaCrawler, read the [FAQs](faq.md) and browse the [resources](resources.md).
 
-#### Explore or visualize
+**Explore or visualize**
 
 Start with [schema search](schemacrawler-grep.md) or [database diagrams](diagramming.md). Read [How to explore a new database](https://dev.to/sualeh/how-do-you-explore-a-new-database-1pge), [Explore Your Database Schema with SchemaCrawler](https://dev.to/sualeh/explore-your-database-schema-with-schemacrawler-5341), or follow a [dbdiagram.io](https://dev.to/sualeh/how-to-generate-dbdiagram-io-diagrams-for-your-database-431l) or [Mermaid diagram](https://dev.to/sualeh/how-to-generate-mermaid-diagrams-for-your-database-33bn) tutorial.
 
 For a quick database-specific example, see how to visualize [MySQL](https://dev.to/sualeh/how-to-visualize-your-mysql-database-with-one-command-and-nothing-to-install-21cp), [PostgreSQL](https://dev.to/sualeh/how-to-visualize-your-postgresql-database-with-one-command-and-nothing-to-install-3e3j), or [SQLite](https://dev.to/sualeh/how-to-visualize-your-sqlite-database-with-one-command-and-nothing-to-install-1f4m) with one command.
 
-#### Document
+**Document**
 
 Compare [output formats](output.md) and [serialization](serialize.md), or generate navigable Markdown with [SchemaCrawler Scribe](scribe.md) and the [Scribe and Google OKF tutorial](https://dev.to/sualeh/schemacrawler-scribe-google-okf-ai-ready-database-docs-you-can-keep-in-git-2off). For a scripting-based walkthrough, see [Automatically Document Your Database in Markdown](https://dev.to/sualeh/automatically-document-your-database-in-markdown-elf).
 
-#### Analyze
+**Analyze**
 
 Use [graph metrics and table importance](importance.md) to prioritize tables, or [lint your schema](lint.md) for design issues. See [how to rank tables by importance](https://dev.to/sualeh/rank-your-database-tables-by-importance-with-schemacrawler-1gib) or [lint with GitHub Actions](https://dev.to/sualeh/lint-your-database-schema-with-github-actions-workflows-57cg).
 
-#### Use AI assistance
+**Use AI assistance**
 
-Connect an AI client with the [SchemaCrawler AI MCP Server](mcpserver.md) and its [usage guide](https://github.com/schemacrawler/SchemaCrawler-AI-MCP-Server-Usage), or try the [ChatGPT schema exploration tutorial](https://dev.to/sualeh/use-chatgpt-to-explore-your-database-schema-4mfm).
+Connect an AI client with the [SchemaCrawler AI MCP Server](mcpserver.md) and its [usage guide](https://github.com/schemacrawler/SchemaCrawler-AI-MCP-Server-Usage),.
 
 
 ### Explore the Command-Line
