@@ -1,5 +1,7 @@
 # How to Quickly Create a Test Database
 
+> **Deprecated:** The `schemacrawler/chinook-database` repository has been deleted. The setup instructions below depend on that project and are retained for historical reference; they may no longer work.
+
 Chinook is an open source test database (schema and data) that was created as an alternative to Microsoft's Northwind database. For a while now, [Luis Rocha](https://github.com/lerocha) has provided scripts to create this database with his [lerocha/chinook-database](https://github.com/lerocha/chinook-database) project. These scripts support building Chinook for Microsoft SQL Server, Oracle, MySQL, PostgreSQL and IBM DB2. However, this project has not been updated in a few years, and the scripts are in different formats and encodings. 
 
 [schemacrawler/chinook-database](https://github.com/schemacrawler/chinook-database) builds on the earlier project. The project has an automatic build using GitHub Actions, which pulls scripts from [lerocha/chinook-database](https://github.com/lerocha/chinook-database), cleans them up, and converts them all to UTF-8 with consistent line-endings. Then are are repacked and redistributed in various ways - as a Java jar file for use in Java programs or in tests with database in [Testcontainers](https://www.testcontainers.org/). The SQLite database can be directly download from the [project site](https://github.com/schemacrawler/chinook-database/releases). But probably the best way to use the package it is use the Docker image from [schemacrawler/chinook-database](https://github.com/schemacrawler/chinook-database) to create the Chinook database on a database of your choice, whether the database server is running on a separate host or within a Docker container itself.
@@ -10,16 +12,22 @@ Chinook is an open source test database (schema and data) that was created as an
 Using [schemacrawler/chinook-database](https://github.com/schemacrawler/chinook-database) is very simple. The Chinook database Docker image is [published on Docker Hub](https://hub.docker.com/r/schemacrawler/chinook-database). Pull the latest Docker image, and run it using a command like:
 
 ```sh
-docker run -it schemacrawler/chinook-database /bin/bash
+docker run \
+  -it schemacrawler/chinook-database /bin/bash
 ```
+
+> **PowerShell:** Replace trailing backslashes (`\`) with backticks (`` ` ``) for line continuation.
 
 and then from the shell run `chinook-database-creator` with a command like:
 
 ```sh
 chinook-database-creator \
---url "jdbc:postgresql://localhost:5432/database" \
---user ***** --password *****
+  --url "jdbc:postgresql://localhost:5432/database" \
+  --user ***** \
+  --password *****
 ```
+
+> **PowerShell:** Replace trailing backslashes (`\`) with backticks (`` ` ``) for line continuation.
 
 The command uses JDBC internally, so your may want to refer to the [JDBC connection URL documentation for each database](https://www.baeldung.com/java-jdbc-url-format).
  
@@ -64,10 +72,12 @@ and in the shell, create the database with:
 
 ```sh
 chinook-database-creator \
---url "jdbc:postgresql://postgresql:5432/schemacrawler" \
---user schemacrawler \
---password schemacrawler
+  --url "jdbc:postgresql://postgresql:5432/schemacrawler" \
+  --user schemacrawler \
+  --password schemacrawler
 ```
+
+> **PowerShell:** Replace trailing backslashes (`\`) with backticks (`` ` ``) for line continuation.
 
 (Don't forget to clean up.)
 
