@@ -50,8 +50,10 @@ The JDBC API is powerful, but using it is daunting, especially for novice progra
 Take a look at some sample code that demonstrates just how easy it is to use SchemaCrawler. This code assumes that you have a `javax.sql.DataSource` that is capable of handing out database connections on demand. Getting the database schema is a matter of one single call:
 
 ```java
-final SchemaCrawlerOptions options = SchemaCrawlerOptionsBuilder.newSchemaCrawlerOptions();
-final Catalog catalog = SchemaCrawlerUtility.getCatalog(getConnection(), options);
+final SchemaCrawlerOptions options =
+    SchemaCrawlerOptionsBuilder.newSchemaCrawlerOptions();
+final Catalog catalog =
+    SchemaCrawlerUtility.getCatalog(getConnection(), options);
 ```
 
 It is as simple as that. You get to decide how detailed you want the returned schema to be—with the basic schema information level, you get columns and tables but not indexes, for example. The schema information level determines how much time the getSchema call takes. You can filter out certain tables and columns with regular expressions that are more powerful than SQL regular expressions by setting the right `SchemaCrawlerOptions`. You can exclude tables of certain types, such as views, from the output schema.
