@@ -229,4 +229,4 @@ Start with the catalog to establish what is real. Build the ER model when the sh
 
 That progression turns raw JDBC metadata into something much more useful: a map of the database, a model of its relationships, and a guide to the parts that deserve your attention first.
 
-For a deeper dive into scores, metrics, and the `importance` command, see [Rank Your Database Tables by Importance with SchemaCrawler](https://dev.to/sualeh/rank-your-database-tables-by-importance-with-schemacrawler-4j4m).
+For a deeper dive into scores, metrics, and the `importance` command, see [Rank Your Database Tables by Importance with SchemaCrawler](https://dev.to/sualeh/rank-your-database-tables-by-importance-with-schemacrawler-1gib).
