@@ -21,6 +21,8 @@ Before running this example, complete the setup in [Getting Started](getting-sta
     --output-file share/offline.ser
    ```
 
+  > **PowerShell:** Replace trailing backslashes (`\`) with backticks (`` ` ``) for line continuation.
+
 This produces a compressed serialized snapshot file named "offline.ser". For details on snapshot formats, limitations, and requirements, see [SchemaCrawler Offline Catalog Snapshot](../offline.md).
 
 When creating an offline database, prefer to use `maximum` info-level.
@@ -35,6 +37,8 @@ When creating an offline database, prefer to use `maximum` info-level.
      --command=schema
    ```
 
+   > **PowerShell:** Replace trailing backslashes (`\`) with backticks (`` ` ``) for line continuation.
+
 ## How to Experiment
 
 1. Try other SchemaCrawler commands against the offline snapshot, such as `list`, `brief`, or `details`:
@@ -46,6 +50,8 @@ When creating an offline database, prefer to use `maximum` info-level.
      --info-level standard \
      --command details
    ```
+
+   > **PowerShell:** Replace trailing backslashes (`\`) with backticks (`` ` ``) for line continuation.
 
 2. Generate an HTML or text report from the offline snapshot:
 
@@ -59,6 +65,8 @@ When creating an offline database, prefer to use `maximum` info-level.
      --output-file share/output.html
    ```
 
+   > **PowerShell:** Replace trailing backslashes (`\`) with backticks (`` ` ``) for line continuation.
+
 3. Use the offline snapshot with the [grep](grep.md) options to search metadata without a live connection:
 
    ```sh
@@ -71,6 +79,8 @@ When creating an offline database, prefer to use `maximum` info-level.
      --grep-columns ".*\.publisher"
    ```
 
+   > **PowerShell:** Replace trailing backslashes (`\`) with backticks (`` ` ``) for line continuation.
+
 4. Use the offline snapshot with [lint](lint.md) to find design issues without a live database:
 
    ```sh
@@ -80,3 +90,6 @@ When creating an offline database, prefer to use `maximum` info-level.
      --info-level standard \
      --command=lint
    ```
+
+   > **PowerShell:** Replace trailing backslashes (`\`) with backticks (`` ` ``) for line continuation.
+

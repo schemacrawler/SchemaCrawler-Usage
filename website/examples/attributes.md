@@ -21,6 +21,8 @@ Before running this example, complete the setup in [Getting Started](getting-sta
     --attributes-file share/attributes.yaml
   ```
 
+  > **PowerShell:** Replace trailing backslashes (`\`) with backticks (`` ` ``) for line continuation.
+
 > Replace with the connection options for your chosen database. See [Getting Started](getting-started-examples.md).
 
 SchemaCrawler will load the schema and overlay the remarks and attributes defined in `attributes.yaml` onto the output.

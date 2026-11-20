@@ -10,16 +10,25 @@ Before running this example, complete the setup in [Getting Started](getting-sta
 2. Run the example command:
 
   ```sh
-  schemacrawler <connection-options> --info-level standard -c=hsqldb.tables
+  schemacrawler <connection-options> \
+    --info-level standard \
+    -c=hsqldb.tables
   ```
+
+  > **PowerShell:** Replace trailing backslashes (`\`) with backticks (`` ` ``) for line continuation.
 
 > Replace with the connection options for your chosen database. See [Getting Started](getting-started-examples.md).
 
 3. To write output to a file:
 
   ```sh
-  schemacrawler <connection-options> --info-level standard -c=hsqldb.tables --output-file share/output.txt
+  schemacrawler <connection-options> \
+    --info-level standard \
+    -c=hsqldb.tables \
+    --output-file share/output.txt
   ```
+
+  > **PowerShell:** Replace trailing backslashes (`\`) with backticks (`` ` ``) for line continuation.
 
 > The output file will appear in your current working directory on the host.
 

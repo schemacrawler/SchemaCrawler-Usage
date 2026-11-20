@@ -21,6 +21,8 @@ Before running this example, complete the setup in [Getting Started](getting-sta
     --script share/chain.js
   ```
 
+  > **PowerShell:** Replace trailing backslashes (`\`) with backticks (`` ` ``) for line continuation.
+
 > Replace with the connection options for your chosen database. See [Getting Started](getting-started-examples.md).
 
 This produces two output files in your working directory on the host:

@@ -20,6 +20,8 @@ Before running this example, complete the setup in [Getting Started](getting-sta
     --grep-columns=.*\.publisher
   ```
 
+  > **PowerShell:** Replace trailing backslashes (`\`) with backticks (`` ` ``) for line continuation.
+
 > Replace with the connection options for your chosen database. See [Getting Started](getting-started-examples.md).
 
 2. Find routines that have parameters matching a regular expression (e.g., parameters named `two`). Run the command:
@@ -38,6 +40,8 @@ Before running this example, complete the setup in [Getting Started](getting-sta
     --grep-parameters=.*\.two
   ```
 
+  > **PowerShell:** Replace trailing backslashes (`\`) with backticks (`` ` ``) for line continuation.
+
 `--tables=` (empty value) suppresses table output so only routine results are shown.
 
 ## How to Experiment
@@ -53,9 +57,11 @@ Before running this example, complete the setup in [Getting Started](getting-sta
     --password schemacrawler \
     --info-level standard \
     --command schema \
-      --no-info \
-      --tables=.*authors.* \
-      --grep-columns=.*\.name
+    --no-info \
+    --tables=.*authors.* \
+    --grep-columns=.*\.name
   ```
+
+  > **PowerShell:** Replace trailing backslashes (`\`) with backticks (`` ` ``) for line continuation.
 
 2. Use `--grep-def` to search for a pattern in table or column definitions (remarks or comments).

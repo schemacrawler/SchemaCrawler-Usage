@@ -56,6 +56,8 @@ For example, typical command-line options for SchemaCrawler for Microsoft SQL Se
 --password=schemacrawler
 ```
 
+> **PowerShell:** Replace trailing backslashes (`\`) with backticks (`` ` ``) for line continuation.
+
 Always use the `--schemas` command-line switch (a regular expression) for databases that support it, to specify which schemas SchemaCrawler will work with. Schema naming varies by database: Microsoft SQL Server uses a "database_name.user" format, while Oracle uses uppercase schema names like "USER".
 
 If a system has environmental variables that contain a value, you can use the supported shell functionality to pass data to SchemaCrawler. For example, `--host %DBHOST%` on Windows will use the host value specified in the `DBHOST` environmental variable, and `--host $DBHOST` will do the same thing on Linux.
@@ -82,6 +84,8 @@ Typical command-line arguments will look like:
 -command=schema
 ```
 
+> **PowerShell:** Replace trailing backslashes (`\`) with backticks (`` ` ``) for line continuation.
+
 You can also pass connection properties using the `--urlx` command-line switch.
 
 If your Microsoft SQL Server instance is set up with instance names, named pipes, or Windows authentication, you
@@ -102,6 +106,8 @@ Typical command-line arguments for connecting to SQL Server with Windows authent
 --command=schema
 ```
 
+> **PowerShell:** Replace trailing backslashes (`\`) with backticks (`` ` ``) for line continuation.
+
 or
 
 ```
@@ -116,6 +122,8 @@ or
 --info-level=standard \
 -command=schema
 ```
+
+> **PowerShell:** Replace trailing backslashes (`\`) with backticks (`` ` ``) for line continuation.
 
 Please make sure that you use the `--schemas` option to reduce the number of schemas in the output. In the
 SchemaCrawler interactive shell, use the `limit` command with this option.
@@ -142,6 +150,8 @@ Typical command-line arguments will look like:
 --command=schema
 ```
 
+> **PowerShell:** Replace trailing backslashes (`\`) with backticks (`` ` ``) for line continuation.
+
 In the example above, "ORCL" is the Oracle Service Name.
 
 
@@ -165,6 +175,8 @@ Typical command-line arguments will look like:
 --command=schema
 ```
 
+> **PowerShell:** Replace trailing backslashes (`\`) with backticks (`` ` ``) for line continuation.
+
 ### PostgreSQL
 
 You need to specify the host, port, database name, and the schemas you
@@ -184,6 +196,8 @@ Typical command-line arguments will look like:
 --info-level=standard \
 --command=schema
 ```
+
+> **PowerShell:** Replace trailing backslashes (`\`) with backticks (`` ` ``) for line continuation.
 
 - `--host`  is optional if the `PGHOSTADDR` or `PGHOST` environmental variables are set
 - `--port`  is optional if the `PGPORT` environmental variables is set
@@ -209,6 +223,7 @@ Typical command-line arguments will look like:
 --command=schema
 ```
 
+> **PowerShell:** Replace trailing backslashes (`\`) with backticks (`` ` ``) for line continuation.
 
 ## Unconventional Data Sources
 

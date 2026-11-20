@@ -43,7 +43,7 @@ docker run \
   --output-file=share/schema
 ```
 
-Use backtick (`) instead of backslash (\) for command-line continuations in PowerShell.
+> **PowerShell:** Replace trailing backslashes (`\`) with backticks (`` ` ``) for line continuation.
 
 ## Also See
 

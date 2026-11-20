@@ -27,6 +27,8 @@ schemaspy \
   -o ./schema-output.zip
 ```
 
+> **PowerShell:** Replace trailing backslashes (`\`) with backticks (`` ` ``) for line continuation.
+
 You can list supported SchemaSpy database types:
 
 ```sh
@@ -42,8 +44,13 @@ In the SchemaCrawler Docker image, both `schemacrawler` and `schemaspy` are
 available:
 
 ```sh
-docker run --rm -it schemacrawler/schemacrawler schemaspy -dbhelp
+docker run \
+  --rm  -it \
+  schemacrawler/schemacrawler \
+  schemaspy -dbhelp
 ```
+
+> **PowerShell:** Replace trailing backslashes (`\`) with backticks (`` ` ``) for line continuation.
 
 ## Expected output
 

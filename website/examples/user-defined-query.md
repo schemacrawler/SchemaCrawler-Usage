@@ -38,6 +38,8 @@ Before running this example, complete the setup in [Getting Started](getting-sta
     --command tables.select
   ```
 
+  > **PowerShell:** Replace trailing backslashes (`\`) with backticks (`` ` ``) for line continuation.
+
 > Replace with the connection options for your chosen database. See [Getting Started](getting-started-examples.md).
 
 The "tables.select" query is already pre-defined in the "schemacrawler.config.properties" file. "schemacrawler.config.properties" is also read from the current working directory.

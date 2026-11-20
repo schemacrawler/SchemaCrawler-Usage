@@ -104,6 +104,8 @@ You can install SchemaCrawler on Linux and macOS using [SDKMan](https://sdkman.i
      /opt/schemacrawler/bin/schemacrawler.sh --version
    ```
 
+   > **PowerShell:** Replace trailing backslashes (`\`) with backticks (`` ` ``) for line continuation.
+
 See [Docker Image](docker-image.md) for full documentation on using SchemaCrawler with Docker.
 
 

@@ -22,6 +22,8 @@ Before running this example, complete the setup in [Getting Started](getting-sta
     --output-file share/database-diagram.png
   ```
 
+  > **PowerShell:** Replace trailing backslashes (`\`) with backticks (`` ` ``) for line continuation.
+
 The output filename extension determines the output format — PNG, PDF, SVG, or others.
 
 > Replace with the connection options for your chosen database. See [Getting Started](getting-started-examples.md).

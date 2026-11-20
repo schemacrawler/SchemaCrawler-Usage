@@ -18,6 +18,9 @@ Before running this example, complete the setup in [Getting Started](getting-sta
     --info-level standard \
     --command=lint
   ```
+
+  > **PowerShell:** Replace trailing backslashes (`\`) with backticks (`` ` ``) for line continuation.
+
 2. Generate the Lint report in HTML format:
 
   ```sh
@@ -33,6 +36,8 @@ Before running this example, complete the setup in [Getting Started](getting-sta
     --output-file=share/lint-report.html
   ```
 
+  > **PowerShell:** Replace trailing backslashes (`\`) with backticks (`` ` ``) for line continuation.
+
 3. Generate the Lint report in JSON or YAML format:
 
   ```sh
@@ -47,6 +52,8 @@ Before running this example, complete the setup in [Getting Started](getting-sta
     --output-format=json \
     --output-file=share/lint-report.json
   ```
+
+  > **PowerShell:** Replace trailing backslashes (`\`) with backticks (`` ` ``) for line continuation.
 
    Replace `json` with `yaml` to get YAML output instead.
 
@@ -76,6 +83,8 @@ Before running this example, complete the setup in [Getting Started](getting-sta
         --command=lint \
         --linter-configs=share/schemacrawler-linter-configs.yaml
       ```
+
+      > **PowerShell:** Replace trailing backslashes (`\`) with backticks (`` ` ``) for line continuation.
 
 3. To write your own custom lints, see [SchemaCrawler Lint](../lint.md) for details on the Lint API and how to package and deploy custom linter jars.
 

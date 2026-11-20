@@ -8,17 +8,51 @@ In a large database, you can have hundreds of tables. Most people try to print o
 
 Consider the case when you came back from vacation, and the developers had been very active. You would not be able to find any of the new tables and columns that they would have created on the diagram on your wall. However, if you had saved your SchemaCrawler command-line from before your vacation, all you would have to do would be to rerun SchemaCrawler, and you would get a brand new diagram. SchemaCrawler would have found and accounted for all of the new tables and columns that you were not going to know about.
 
-Here are some concrete examples, using Microsoft's AdventureWorks database:
-Search for tables that have a column called `VendorID` (use `--grep-columns=.*\.VendorID`)
+## Explore AdventureWorks
+
+The [AdventureWorks example](https://github.com/schemacrawler/SchemaCrawler-Usage/tree/main/explore-adventureworks) runs a PostgreSQL version of the database alongside SchemaCrawler in Docker containers. Clone the repository, start the containers, and open a Bash shell in the SchemaCrawler container:
 
 ```sh
-schemacrawler --server=sqlserver --host=**** --database=AdventureWorks --schemas=AdventureWorks\..* --user=**** --password=**** --info-level=standard --table-types=TABLE --grep-columns=.*\.VendorID --command=schema
+git clone https://github.com/schemacrawler/SchemaCrawler-Usage.git
+cd SchemaCrawler-Usage/explore-adventureworks
+docker compose -f adventureworks.yaml up -d
+docker exec -it schemacrawler bash
 ```
 
-Then, to plot a database diagram of tables that have a column called `VendorID`, with related tables (use `--parents=1 --children=1`)
+Run SchemaCrawler commands from that Bash shell. List the tables in AdventureWorks:
 
 ```sh
-schemacrawler --server=sqlserver --host=**** --database=AdventureWorks --schemas=AdventureWorks\..* --user=**** --password=**** --info-level=standard --table-types=TABLE --grep-columns=.*\.VendorID --command=schema --parents=1 --children=1 --output-format=pdf
+schemacrawler \
+  --server postgresql \
+  --host adventureworks \
+  --database postgres \
+  --user schemacrawler \
+  --password schemacrawler \
+  --info-level minimum \
+  --command list
+```
+
+Create a diagram of the `Employee` table and its child tables:
+
+```sh
+schemacrawler \
+  --server postgresql \
+  --host adventureworks \
+  --database postgres \
+  --user schemacrawler \
+  --password schemacrawler \
+  --info-level standard \
+  --command schema \
+  --grep-tables '.*\."Employee"' \
+  --children 1 \
+  --output-file share/employee-table-children.pdf
+```
+
+The output file is saved in the local `explore-adventureworks` directory, which is mounted into the container as `share`. When you are done, exit Bash and stop the containers:
+
+```sh
+exit
+docker compose -f adventureworks.yaml down -t0
 ```
 
 (You can use [SchemaCrawler live tutorials](https://killercoda.com/schemacrawler) to see this in action.)

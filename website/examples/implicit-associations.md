@@ -22,6 +22,8 @@ schemacrawler \
   --output-file share/implicit-associations.png
 ```
 
+> **PowerShell:** Replace trailing backslashes (`\`) with backticks (`` ` ``) for line continuation.
+
 > Replace with the connection options for your chosen database. See [Getting Started](getting-started-examples.md).
 
 Open `implicit-associations.png` to view the schema diagram. The implicit associations defined in the YAML file will appear as relationships in the diagram, alongside any real foreign keys in the database.

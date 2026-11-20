@@ -10,10 +10,12 @@
 docker run \
 -v $(pwd):/home/schcrwlr/share \
 --name schemacrawler \
---rm -i -t \
+--rm -it \
 --entrypoint=/bin/bash \
 schemacrawler/schemacrawler
 ```
+
+> **PowerShell:** Replace trailing backslashes (`\`) with backticks (`` ` ``) for line continuation.
 
 The SchemaCrawler Docker container starts with a non-privileged user `schcrwlr` in group `users`. Please ensure that the mount point for the SchemaCrawler Docker container is writable by user 1000 in group 100 on the host.
 
@@ -46,9 +48,13 @@ Once you start the SchemaCrawler Docker container, you can start SchemaCrawler f
 
 ```
 schemacrawler \
---server=sqlite --database=sc.db \
---info-level=maximum --command=schema
+  --server=sqlite \
+  --database=sc.db \
+  --info-level=maximum \
+  --command=schema
 ```
+
+> **PowerShell:** Replace trailing backslashes (`\`) with backticks (`` ` ``) for line continuation.
 
 The easiest way to learn how to use the SchemaCrawler command-line is by doing the
 [live online tutorial](https://killercoda.com/schemacrawler/scenario/schemacrawler). The tutorial works from within
@@ -103,8 +109,10 @@ For example, replace `<digest>` and Docker image name below with the SHA-256 dig
 gh attestation verify  \
   'oci://docker.io/schemacrawler/schemacrawler-webapp@sha256:<<SHA>>' \
   --owner schemacrawler \
-  --bundle-from-oci  
+  --bundle-from-oci
 ```
+
+> **PowerShell:** Replace trailing backslashes (`\`) with backticks (`` ` ``) for line continuation.
 
 Then check the attested details.
 

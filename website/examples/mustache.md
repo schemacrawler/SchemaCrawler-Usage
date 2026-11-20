@@ -21,7 +21,9 @@ Before running this example, complete the setup in [Getting Started](getting-sta
     --templating-language=mustache \
     --template share/tables.mustache \
     --output-file share/output.txt
-```
+  ```
+
+  > **PowerShell:** Replace trailing backslashes (`\`) with backticks (`` ` ``) for line continuation.
 
 > Replace with the connection options for your chosen database. See [Getting Started](getting-started-examples.md).
 
