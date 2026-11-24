@@ -3,6 +3,22 @@
 SchemaCrawler release notes.
 
 
+<a name="v18.0.4"></a>
+## Release v18.0.4 - 2026-11-23
+
+- Address CVE-2026-114938 by building Docker images on patched JDK 25 base images; add `-XX:-UseBASE64Intrinsics` to shell scripts
+- Rename `DatabaseConnectionSource::setFirstConnectionInitializer()` to `withConnectionInitializer()`; retain the old method as deprecated for removal
+- Add a source-retention `LoggerMarker` annotation for logging classes
+- Update dependencies
+
+
+<a name="v18.0.3"></a>
+## Release v18.0.3 - 2026-11-16
+
+- Add signed provenance attestations for Docker images
+- Update dependencies
+
+
 <a name="v18.0.2"></a>
 ## Release v18.0.2 - 2026-11-09
 

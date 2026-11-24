@@ -78,7 +78,7 @@ jobs:
 
       - id: schema-head
         name: Generate schema snapshot (PR)
-        uses: schemacrawler/SchemaCrawler-Action@v18.0.3
+        uses: schemacrawler/SchemaCrawler-Action@v18.0.4
         with:
           entrypoint: /schemacrawler.sh
           args: >
@@ -96,7 +96,7 @@ jobs:
 
       - id: schema-base
         name: Generate schema snapshot (base)
-        uses: schemacrawler/SchemaCrawler-Action@v18.0.3
+        uses: schemacrawler/SchemaCrawler-Action@v18.0.4
         with:
           entrypoint: /schemacrawler.sh
           args: >
